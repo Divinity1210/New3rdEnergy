@@ -80,7 +80,7 @@ export default function ConciergePage() {
   };
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-4xl">
         {/* Header */}
         <div className="text-center space-y-3 mb-8">
@@ -88,7 +88,7 @@ export default function ConciergePage() {
             <Icon name="sparkles" size={14} />
             Verified Technical Intelligence
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
             AI Product <span className="text-solar-400">Concierge.</span>
           </h1>
           <p className="text-sm text-neutral-400 max-w-xl mx-auto">
@@ -97,15 +97,15 @@ export default function ConciergePage() {
         </div>
 
         {/* Chat Container */}
-        <div className="rounded-lg bg-neutral-900/90 border border-white/10 backdrop-blur-md shadow-xl overflow-hidden flex flex-col h-[640px]">
+        <div className="rounded-lg bg-white border border-neutral-200 backdrop-blur-md shadow-xl overflow-hidden flex flex-col h-[640px]">
           {/* Top Chat Bar */}
-          <div className="p-4 px-6 border-b border-white/10 bg-neutral-950/60 flex items-center justify-between">
+          <div className="p-4 px-6 border-b border-neutral-200 bg-neutral-50 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center border border-purple-500/30">
                 <Icon name="sparkles" size={18} />
               </div>
               <div>
-                <h3 className="font-bold text-xs sm:text-sm text-white">3rd Energy Concierge</h3>
+                <h3 className="font-bold text-xs sm:text-sm text-neutral-900">3rd Energy Concierge</h3>
                 <span className="text-[10px] text-green-400 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                   Online · Verified Knowledge Base
@@ -115,7 +115,7 @@ export default function ConciergePage() {
 
             <Link
               href="/contact"
-              className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-neutral-300 text-xs font-semibold border border-white/10 transition-colors"
+              className="px-3 py-1.5 rounded-lg bg-neutral-50 hover:bg-neutral-100 text-neutral-300 text-xs font-semibold border border-neutral-200 transition-colors"
             >
               Contact Specialist
             </Link>
@@ -138,7 +138,7 @@ export default function ConciergePage() {
                   className={`max-w-xl rounded-lg p-4 text-xs leading-relaxed space-y-3 ${
                     msg.sender === 'user'
                       ? 'bg-gradient-to-r from-primary-600 to-amber-500 text-white font-medium shadow-lg shadow-primary-950/40 rounded-tr-none'
-                      : 'bg-white/[0.04] border border-white/10 text-neutral-200 rounded-tl-none'
+                      : 'bg-neutral-50 border border-neutral-200 text-neutral-200 rounded-tl-none'
                   }`}
                 >
                   <div className="whitespace-pre-line prose-invert">
@@ -147,13 +147,13 @@ export default function ConciergePage() {
 
                   {/* Suggested Action Chips */}
                   {msg.suggestedActions && msg.suggestedActions.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/10">
+                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-neutral-200">
                       {msg.suggestedActions.map((act, i) =>
                         act.href ? (
                           <Link
                             key={i}
                             href={act.href}
-                            className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-[11px] font-semibold text-solar-300 border border-solar-500/20 transition-colors flex items-center gap-1"
+                            className="px-3 py-1 rounded-full bg-neutral-100 hover:bg-white/20 text-[11px] font-semibold text-solar-300 border border-solar-500/20 transition-colors flex items-center gap-1"
                           >
                             <span>{act.label}</span>
                             <Icon name="arrow-up-right" size={10} />
@@ -183,7 +183,7 @@ export default function ConciergePage() {
                 <div className="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 flex items-center justify-center shrink-0">
                   <Icon name="sparkles" size={14} />
                 </div>
-                <div className="p-3 rounded-lg bg-white/[0.04] border border-white/10 flex items-center gap-2">
+                <div className="p-3 rounded-lg bg-neutral-50 border border-neutral-200 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce" />
                   <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce [animation-delay:0.2s]" />
                   <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce [animation-delay:0.4s]" />
@@ -199,14 +199,14 @@ export default function ConciergePage() {
               e.preventDefault();
               sendMessage();
             }}
-            className="p-4 border-t border-white/10 bg-neutral-950/80 flex items-center gap-3"
+            className="p-4 border-t border-neutral-200 bg-neutral-50 flex items-center gap-3"
           >
             <input
               type="text"
               value={inputQuery}
               onChange={(e) => setInputQuery(e.target.value)}
               placeholder="Ask a technical equipment question..."
-              className="flex-1 px-4 py-3 rounded-xl bg-neutral-900 border border-white/15 text-white text-xs placeholder:text-neutral-500 focus:border-amber-400 focus:outline-none"
+              className="flex-1 px-4 py-3 rounded-xl bg-white border border-neutral-300 text-white text-xs placeholder:text-neutral-500 focus:border-solar-400 focus:outline-none"
             />
             <button
               type="submit"

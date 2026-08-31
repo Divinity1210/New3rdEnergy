@@ -35,7 +35,7 @@ export default function ComparePowerProductsPage() {
   };
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide">
         {/* Header */}
         <div className="text-center space-y-3 mb-12 max-w-3xl mx-auto">
@@ -43,7 +43,7 @@ export default function ComparePowerProductsPage() {
             <Icon name="grid" size={14} />
             Side-by-Side Evaluation
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
             Compare <span className="text-solar-400">Power Products.</span>
           </h1>
           <p className="text-sm text-neutral-400">
@@ -52,7 +52,7 @@ export default function ComparePowerProductsPage() {
         </div>
 
         {/* Quick Add Product Bar */}
-        <div className="mb-8 p-4 rounded-lg bg-neutral-900 border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div className="mb-8 p-4 rounded-lg bg-white border border-neutral-200 flex flex-wrap items-center justify-between gap-3 text-xs">
           <span className="text-neutral-400">Add Equipment to Compare:</span>
           <div className="flex flex-wrap gap-2">
             {powerProducts.map((prod) => (
@@ -62,8 +62,8 @@ export default function ComparePowerProductsPage() {
                 disabled={selectedProductIds.includes(prod.id)}
                 className={`px-3 py-1.5 rounded-lg border font-semibold transition-all ${
                   selectedProductIds.includes(prod.id)
-                    ? 'bg-white/5 border-white/5 text-neutral-600 cursor-not-allowed'
-                    : 'bg-white/5 border-white/10 text-neutral-300 hover:text-white hover:border-solar-500/40'
+                    ? 'bg-neutral-50 border-white/5 text-neutral-600 cursor-not-allowed'
+                    : 'bg-neutral-50 border-neutral-200 text-neutral-300 hover:text-neutral-900 hover:border-solar-500/40'
                 }`}
               >
                 + {prod.name.split(' ')[2] || prod.name.split(' ')[0]} ({prod.category})
@@ -74,16 +74,16 @@ export default function ComparePowerProductsPage() {
 
         {/* Comparison Matrix Table */}
         {selectedProducts.length === 0 ? (
-          <div className="text-center py-16 bg-white/[0.02] rounded-lg border border-white/10">
+          <div className="text-center py-16 bg-neutral-50 rounded-lg border border-neutral-200">
             <h3 className="font-bold text-white text-base">No products selected for comparison</h3>
             <p className="text-xs text-neutral-400 mt-1">Select products from the quick bar above.</p>
           </div>
         ) : (
-          <div className="rounded-lg bg-neutral-900/80 border border-white/10 overflow-hidden shadow-xl backdrop-blur-md">
+          <div className="rounded-lg bg-white border border-neutral-200 overflow-hidden shadow-xl backdrop-blur-md">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
-                  <tr className="border-b border-white/10">
+                  <tr className="border-b border-neutral-200">
                     <th className="py-6 px-6 w-56 text-neutral-400 font-bold uppercase text-[11px] tracking-wider bg-white/[0.01]">
                       Product Overview
                     </th>
@@ -103,7 +103,7 @@ export default function ComparePowerProductsPage() {
                             </button>
                           </div>
 
-                          <div className="h-28 relative rounded-xl overflow-hidden bg-neutral-800">
+                          <div className="h-28 relative rounded-xl overflow-hidden bg-neutral-100">
                             <Image src={p.image} alt={p.name} fill className="object-cover" sizes="240px" />
                           </div>
 
@@ -130,19 +130,19 @@ export default function ComparePowerProductsPage() {
 
                 <tbody className="divide-y divide-white/5 text-xs">
                   {/* Rating / Continuous Power */}
-                  <tr className="hover:bg-white/[0.02]">
+                  <tr className="hover:bg-neutral-50">
                     <td className="py-4 px-6 font-bold text-neutral-400 bg-white/[0.01]">
                       Continuous Output / Capacity
                     </td>
                     {selectedProducts.map((p) => (
-                      <td key={p.id} className="py-4 px-6 font-semibold text-white">
+                      <td key={p.id} className="py-4 px-6 font-semibold text-neutral-900">
                         {p.specs.continuousPower || p.specs.capacity || 'N/A'}
                       </td>
                     ))}
                   </tr>
 
                   {/* Surge Capacity */}
-                  <tr className="hover:bg-white/[0.02]">
+                  <tr className="hover:bg-neutral-50">
                     <td className="py-4 px-6 font-bold text-neutral-400 bg-white/[0.01]">
                       Surge Capacity
                     </td>
@@ -154,7 +154,7 @@ export default function ComparePowerProductsPage() {
                   </tr>
 
                   {/* Voltage / Battery Chemistry */}
-                  <tr className="hover:bg-white/[0.02]">
+                  <tr className="hover:bg-neutral-50">
                     <td className="py-4 px-6 font-bold text-neutral-400 bg-white/[0.01]">
                       Voltage & Chemistry
                     </td>
@@ -166,7 +166,7 @@ export default function ComparePowerProductsPage() {
                   </tr>
 
                   {/* Efficiency / Solar Input */}
-                  <tr className="hover:bg-white/[0.02]">
+                  <tr className="hover:bg-neutral-50">
                     <td className="py-4 px-6 font-bold text-neutral-400 bg-white/[0.01]">
                       Efficiency / Solar PV Input
                     </td>
@@ -179,7 +179,7 @@ export default function ComparePowerProductsPage() {
                   </tr>
 
                   {/* Cycles & Lifespan */}
-                  <tr className="hover:bg-white/[0.02]">
+                  <tr className="hover:bg-neutral-50">
                     <td className="py-4 px-6 font-bold text-neutral-400 bg-white/[0.01]">
                       Cycle Lifespan
                     </td>
@@ -191,7 +191,7 @@ export default function ComparePowerProductsPage() {
                   </tr>
 
                   {/* Warranty */}
-                  <tr className="hover:bg-white/[0.02]">
+                  <tr className="hover:bg-neutral-50">
                     <td className="py-4 px-6 font-bold text-neutral-400 bg-white/[0.01]">
                       Warranty Coverage
                     </td>
@@ -203,7 +203,7 @@ export default function ComparePowerProductsPage() {
                   </tr>
 
                   {/* Who It Is For */}
-                  <tr className="hover:bg-white/[0.02]">
+                  <tr className="hover:bg-neutral-50">
                     <td className="py-4 px-6 font-bold text-neutral-400 bg-white/[0.01]">
                       Target Application
                     </td>

@@ -78,7 +78,7 @@ export default function SystemBuilderPage() {
   };
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-6xl">
         {/* Header */}
         <div className="text-center space-y-3 mb-12">
@@ -86,7 +86,7 @@ export default function SystemBuilderPage() {
             <Icon name="settings" size={14} />
             AI System Builder
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
             Design & Customize <span className="text-solar-400">My Power System.</span>
           </h1>
           <p className="text-sm text-neutral-400 max-w-xl mx-auto">
@@ -98,14 +98,14 @@ export default function SystemBuilderPage() {
           {/* Left Column: Interactive Controls (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             {/* 1. Inverter Core Selector */}
-            <div className="p-6 rounded-lg bg-neutral-900 border border-white/10 space-y-4">
+            <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-solar-400 uppercase tracking-wider">
                   Step 1 · Power Core
                 </span>
                 <span className="text-xs text-neutral-400">Inverter Inrush Capacity</span>
               </div>
-              <h2 className="font-heading font-bold text-lg text-white">
+              <h2 className="font-heading font-bold text-lg text-neutral-900">
                 Choose Inverter Capacity
               </h2>
 
@@ -117,7 +117,7 @@ export default function SystemBuilderPage() {
                     className={`p-4 rounded-lg border cursor-pointer transition-all ${
                       selectedInverterId === inv.id
                         ? 'bg-solar-500/15 border-solar-500/60 shadow-lg shadow-amber-950/20'
-                        : 'bg-white/[0.02] border-white/10 hover:border-white/20'
+                        : 'bg-neutral-50 border-neutral-200 hover:border-neutral-300'
                     }`}
                   >
                     <span className="text-xs font-bold text-white block">
@@ -135,14 +135,14 @@ export default function SystemBuilderPage() {
             </div>
 
             {/* 2. Battery Storage Scaling */}
-            <div className="p-6 rounded-lg bg-neutral-900 border border-white/10 space-y-4">
+            <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-solar-400 uppercase tracking-wider">
                   Step 2 · Energy Storage
                 </span>
                 <span className="text-xs text-neutral-400">{backupHoursTarget}h Est. Runtime</span>
               </div>
-              <h2 className="font-heading font-bold text-lg text-white">
+              <h2 className="font-heading font-bold text-lg text-neutral-900">
                 Lithium LiFePO4 Storage ({totalBatteryKwh} kWh)
               </h2>
 
@@ -159,7 +159,7 @@ export default function SystemBuilderPage() {
                     className={`p-3.5 rounded-lg border cursor-pointer text-center transition-all ${
                       batteryKwhTarget === tier.kwh
                         ? 'bg-solar-500/15 border-solar-500/60 text-white shadow-lg'
-                        : 'bg-white/[0.02] border-white/10 text-neutral-400 hover:text-white'
+                        : 'bg-neutral-50 border-neutral-200 text-neutral-400 hover:text-neutral-900'
                     }`}
                   >
                     <span className="text-xs font-bold block">{tier.kwh} kWh</span>
@@ -172,7 +172,7 @@ export default function SystemBuilderPage() {
             </div>
 
             {/* 3. Solar PV Array Configuration */}
-            <div className="p-6 rounded-lg bg-neutral-900 border border-white/10 space-y-4">
+            <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-solar-400 uppercase tracking-wider">
                   Step 3 · Solar Generation
@@ -182,7 +182,7 @@ export default function SystemBuilderPage() {
                     type="checkbox"
                     checked={includeSolar}
                     onChange={(e) => setIncludeSolar(e.target.checked)}
-                    className="rounded text-amber-500 focus:ring-amber-400 bg-neutral-800 border-white/20"
+                    className="rounded text-amber-500 focus:ring-amber-400 bg-neutral-100 border-neutral-300"
                   />
                   <span className="text-white font-medium">Include Solar Panels</span>
                 </label>
@@ -203,7 +203,7 @@ export default function SystemBuilderPage() {
                         className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-all ${
                           solarPanelCount === count
                             ? 'bg-solar-500/20 border-solar-500/50 text-solar-300'
-                            : 'bg-white/5 border-white/10 text-neutral-400 hover:text-white'
+                            : 'bg-neutral-50 border-neutral-200 text-neutral-400 hover:text-neutral-900'
                         }`}
                       >
                         {count} Panels ({(count * 0.55).toFixed(1)}kWp)
@@ -212,20 +212,20 @@ export default function SystemBuilderPage() {
                   </div>
                 </div>
               ) : (
-                <p className="text-xs text-neutral-400 bg-white/[0.02] p-3 rounded-xl">
+                <p className="text-xs text-neutral-400 bg-neutral-50 p-3 rounded-xl">
                   Solar array removed. System will operate as a clean battery backup inverter charged via utility grid or generator.
                 </p>
               )}
             </div>
 
             {/* 4. Turnkey Installation Toggle */}
-            <div className="p-6 rounded-lg bg-neutral-900 border border-white/10 space-y-3">
+            <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-3">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={includeInstallation}
                   onChange={(e) => setIncludeInstallation(e.target.checked)}
-                  className="mt-1 rounded text-amber-500 focus:ring-amber-400 bg-neutral-800 border-white/20"
+                  className="mt-1 rounded text-amber-500 focus:ring-amber-400 bg-neutral-100 border-neutral-300"
                 />
                 <div className="text-xs">
                   <span className="font-bold text-white block text-sm">
@@ -241,8 +241,8 @@ export default function SystemBuilderPage() {
 
           {/* Right Column: Live Package Bill-of-Materials & Cart Handoff (5 cols) */}
           <div className="lg:col-span-5 sticky top-28">
-            <div className="p-7 rounded-lg bg-neutral-900/95 border border-white/15 backdrop-blur-md shadow-xl space-y-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="p-7 rounded-lg bg-white/95 border border-neutral-300 backdrop-blur-md shadow-xl space-y-6">
+              <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-widest text-solar-400">
                     Live BOM Summary
@@ -260,14 +260,14 @@ export default function SystemBuilderPage() {
               <div className="space-y-3 text-xs">
                 <div className="flex justify-between py-1.5 border-b border-white/5">
                   <span className="text-neutral-300">{currentInverter.name}</span>
-                  <span className="font-semibold text-white">{formatCurrency(currentInverter.price)}</span>
+                  <span className="font-semibold text-neutral-900">{formatCurrency(currentInverter.price)}</span>
                 </div>
 
                 <div className="flex justify-between py-1.5 border-b border-white/5">
                   <span className="text-neutral-300">
                     {batteryUnitsCount}x {batteryUnit.name} ({totalBatteryKwh}kWh)
                   </span>
-                  <span className="font-semibold text-white">{formatCurrency(batteryTotalCost)}</span>
+                  <span className="font-semibold text-neutral-900">{formatCurrency(batteryTotalCost)}</span>
                 </div>
 
                 {includeSolar && (
@@ -275,13 +275,13 @@ export default function SystemBuilderPage() {
                     <span className="text-neutral-300">
                       {solarPanelCount}x {solarPanel.name} ({totalSolarKwp}kWp)
                     </span>
-                    <span className="font-semibold text-white">{formatCurrency(solarTotalCost)}</span>
+                    <span className="font-semibold text-neutral-900">{formatCurrency(solarTotalCost)}</span>
                   </div>
                 )}
 
                 <div className="flex justify-between py-1.5 border-b border-white/5">
                   <span className="text-neutral-300">DC Surge Protection & Accessories</span>
-                  <span className="font-semibold text-white">{formatCurrency(accessoriesCost)}</span>
+                  <span className="font-semibold text-neutral-900">{formatCurrency(accessoriesCost)}</span>
                 </div>
 
                 {includeInstallation && (
@@ -318,7 +318,7 @@ export default function SystemBuilderPage() {
                 <div className="grid grid-cols-2 gap-2">
                   <Link
                     href="/power/installation"
-                    className="py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 text-center text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
+                    className="py-2.5 rounded-xl bg-neutral-50 hover:bg-neutral-100 border border-neutral-200 text-neutral-300 text-center text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
                   >
                     <Icon name="hard-hat" size={14} />
                     Book Site Audit
@@ -326,7 +326,7 @@ export default function SystemBuilderPage() {
 
                   <Link
                     href="/quote"
-                    className="py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 text-center text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
+                    className="py-2.5 rounded-xl bg-neutral-50 hover:bg-neutral-100 border border-neutral-200 text-neutral-300 text-center text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
                   >
                     <Icon name="file-text" size={14} />
                     Get B2B Quote

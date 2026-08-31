@@ -81,7 +81,7 @@ export default function InstallationEnquiryPage() {
   };
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-4xl">
         {/* Header */}
         <div className="text-center space-y-3 mb-12">
@@ -89,7 +89,7 @@ export default function InstallationEnquiryPage() {
             <Icon name="hard-hat" size={14} />
             Nationwide Turnkey Installation
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
             Request Certified <span className="text-solar-400">Solar Installation.</span>
           </h1>
           <p className="text-sm text-neutral-400 max-w-xl mx-auto">
@@ -99,13 +99,13 @@ export default function InstallationEnquiryPage() {
 
         {/* Success Confirmation State */}
         {successReference ? (
-          <div className="p-8 sm:p-12 rounded-lg bg-neutral-900 border border-green-500/40 text-center space-y-6 animate-fade-in shadow-xl">
+          <div className="p-8 sm:p-12 rounded-lg bg-white border border-green-500/40 text-center space-y-6 animate-fade-in shadow-xl">
             <div className="w-20 h-20 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 flex items-center justify-center mx-auto">
               <Icon name="check-circle" size={40} />
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-2xl font-bold text-white">Installation Request Booked!</h2>
+              <h2 className="text-2xl font-bold text-neutral-900">Installation Request Booked!</h2>
               <p className="text-sm text-neutral-300 max-w-lg mx-auto leading-relaxed">
                 Thank you, <strong>{formData.firstName}</strong>. Your installation site audit reference is:
               </p>
@@ -114,7 +114,7 @@ export default function InstallationEnquiryPage() {
               </div>
             </div>
 
-            <div className="p-4 rounded-lg bg-white/[0.03] border border-white/10 max-w-md mx-auto text-xs text-neutral-300 space-y-1 text-left">
+            <div className="p-4 rounded-lg bg-white/[0.03] border border-neutral-200 max-w-md mx-auto text-xs text-neutral-300 space-y-1 text-left">
               <p><strong>Site Location:</strong> {formData.address}, {formData.city}, {formData.state}</p>
               <p><strong>System:</strong> {formData.packageOrProducts}</p>
               <p><strong>Next Step:</strong> Our regional engineering supervisor will call you within 24 hours to confirm date and roof access.</p>
@@ -133,7 +133,7 @@ export default function InstallationEnquiryPage() {
           /* Form Container */
           <form
             onSubmit={handleSubmit}
-            className="p-8 sm:p-12 rounded-lg bg-neutral-900/90 border border-white/10 backdrop-blur-md shadow-xl space-y-8"
+            className="p-8 sm:p-12 rounded-lg bg-white border border-neutral-200 backdrop-blur-md shadow-xl space-y-8"
           >
             {error && (
               <div className="p-4 rounded-lg bg-red-950/40 border border-red-500/30 text-red-300 text-xs flex items-center justify-between">
@@ -146,7 +146,7 @@ export default function InstallationEnquiryPage() {
 
             {/* Section 1: Customer Contact Info */}
             <div className="space-y-4">
-              <h2 className="font-heading font-bold text-lg text-white border-b border-white/10 pb-3 flex items-center gap-2">
+              <h2 className="font-heading font-bold text-lg text-white border-b border-neutral-200 pb-3 flex items-center gap-2">
                 <Icon name="target" size={18} className="text-solar-400" />
                 1. Contact & Organisation
               </h2>
@@ -159,7 +159,7 @@ export default function InstallationEnquiryPage() {
                     required
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     placeholder="e.g. Samuel"
                   />
                 </div>
@@ -169,7 +169,7 @@ export default function InstallationEnquiryPage() {
                     type="text"
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     placeholder="e.g. Adeleke"
                   />
                 </div>
@@ -183,7 +183,7 @@ export default function InstallationEnquiryPage() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     placeholder="samuel@company.com"
                   />
                 </div>
@@ -194,7 +194,7 @@ export default function InstallationEnquiryPage() {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     placeholder="+234 800 000 0000"
                   />
                 </div>
@@ -206,7 +206,7 @@ export default function InstallationEnquiryPage() {
                   type="text"
                   value={formData.organisationName}
                   onChange={(e) => setFormData({ ...formData, organisationName: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                   placeholder="e.g. Apex Industrial Logistics Ltd."
                 />
               </div>
@@ -214,7 +214,7 @@ export default function InstallationEnquiryPage() {
 
             {/* Section 2: Site Location */}
             <div className="space-y-4">
-              <h2 className="font-heading font-bold text-lg text-white border-b border-white/10 pb-3 flex items-center gap-2">
+              <h2 className="font-heading font-bold text-lg text-white border-b border-neutral-200 pb-3 flex items-center gap-2">
                 <Icon name="warehouse" size={18} className="text-solar-400" />
                 2. Site Location & Property
               </h2>
@@ -225,7 +225,7 @@ export default function InstallationEnquiryPage() {
                   <select
                     value={formData.propertyType}
                     onChange={(e) => setFormData({ ...formData, propertyType: e.target.value as PropertyType })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                   >
                     <option value="home">Residential Home / Villa</option>
                     <option value="office">Corporate Office</option>
@@ -242,7 +242,7 @@ export default function InstallationEnquiryPage() {
                     required
                     value={formData.address}
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     placeholder="e.g. Plot 14, Victoria Island Extension"
                   />
                 </div>
@@ -256,7 +256,7 @@ export default function InstallationEnquiryPage() {
                     required
                     value={formData.city}
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     placeholder="e.g. Lekki / Ikeja"
                   />
                 </div>
@@ -265,7 +265,7 @@ export default function InstallationEnquiryPage() {
                   <select
                     value={formData.state}
                     onChange={(e) => setFormData({ ...formData, state: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                   >
                     <option value="Lagos">Lagos</option>
                     <option value="Abuja (FCT)">Abuja (FCT)</option>
@@ -284,7 +284,7 @@ export default function InstallationEnquiryPage() {
 
             {/* Section 3: Electrical & Roof Infrastructure */}
             <div className="space-y-4">
-              <h2 className="font-heading font-bold text-lg text-white border-b border-white/10 pb-3 flex items-center gap-2">
+              <h2 className="font-heading font-bold text-lg text-white border-b border-neutral-200 pb-3 flex items-center gap-2">
                 <Icon name="settings" size={18} className="text-solar-400" />
                 3. Electrical & Roof Infrastructure
               </h2>
@@ -295,7 +295,7 @@ export default function InstallationEnquiryPage() {
                   <select
                     value={formData.electricalPhase}
                     onChange={(e) => setFormData({ ...formData, electricalPhase: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                   >
                     <option value="single-phase">Single Phase (230V)</option>
                     <option value="three-phase">Three Phase (400V Industrial)</option>
@@ -308,7 +308,7 @@ export default function InstallationEnquiryPage() {
                   <select
                     value={formData.roofType}
                     onChange={(e) => setFormData({ ...formData, roofType: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                   >
                     <option value="aluminum-tin">Aluminum / Longspan Corrugated Sheet</option>
                     <option value="concrete-deck">Flat Concrete Slab Deck</option>
@@ -324,7 +324,7 @@ export default function InstallationEnquiryPage() {
                   <select
                     value={formData.systemType}
                     onChange={(e) => setFormData({ ...formData, systemType: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                   >
                     <option value="new_purchase">Turnkey 3rd Energy Package Installation</option>
                     <option value="existing_system">Installation of Client-Supplied Equipment</option>
@@ -338,7 +338,7 @@ export default function InstallationEnquiryPage() {
                     type="text"
                     value={formData.packageOrProducts}
                     onChange={(e) => setFormData({ ...formData, packageOrProducts: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     placeholder="e.g. 5kVA Inverter + 10kWh LiFePO4"
                   />
                 </div>
@@ -351,7 +351,7 @@ export default function InstallationEnquiryPage() {
                     type="date"
                     value={formData.preferredDate}
                     onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                   />
                 </div>
 
@@ -361,7 +361,7 @@ export default function InstallationEnquiryPage() {
                       type="checkbox"
                       checked={formData.hasGeneratorTransferSwitch}
                       onChange={(e) => setFormData({ ...formData, hasGeneratorTransferSwitch: e.target.checked })}
-                      className="rounded text-amber-500 focus:ring-amber-400 bg-neutral-800 border-white/20"
+                      className="rounded text-amber-500 focus:ring-amber-400 bg-neutral-100 border-neutral-300"
                     />
                     <span className="text-neutral-300">Property has an existing Generator Transfer Switch / ATS</span>
                   </label>
@@ -374,14 +374,14 @@ export default function InstallationEnquiryPage() {
                   rows={3}
                   value={formData.siteNotes}
                   onChange={(e) => setFormData({ ...formData, siteNotes: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                   placeholder="Describe your distribution board location, roof height, gate access, or specific requirements..."
                 />
               </div>
             </div>
 
             {/* Submit Action Button */}
-            <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="pt-4 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-xs text-neutral-400">
                 ⚡ Certified engineers · Full insurance · 5-year workmanship guarantee
               </p>

@@ -40,15 +40,15 @@ export default async function ProductDetailPage({ params }: PageProps) {
   );
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-6xl">
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center gap-2 text-xs text-neutral-400 mb-8" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <Link href="/" className="hover:text-neutral-900 transition-colors">Home</Link>
           <Icon name="chevron-right" size={12} />
-          <Link href="/solutions/power-solar" className="hover:text-white transition-colors">Power & Solar</Link>
+          <Link href="/solutions/power-solar" className="hover:text-neutral-900 transition-colors">Power & Solar</Link>
           <Icon name="chevron-right" size={12} />
-          <Link href="/power/products" className="hover:text-white transition-colors">Equipment</Link>
+          <Link href="/power/products" className="hover:text-neutral-900 transition-colors">Equipment</Link>
           <Icon name="chevron-right" size={12} />
           <span className="text-white font-medium truncate max-w-xs">{product.name}</span>
         </nav>
@@ -57,7 +57,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         <div className="grid lg:grid-cols-12 gap-12 items-start mb-16">
           {/* Left Column: Product Photo & Badges */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="h-[420px] rounded-lg bg-neutral-900 border border-white/10 overflow-hidden relative shadow-xl">
+            <div className="h-[420px] rounded-lg bg-white border border-neutral-200 overflow-hidden relative shadow-xl">
               <Image
                 src={product.image}
                 alt={product.name}
@@ -67,7 +67,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute top-4 left-4 flex gap-2">
-                <span className="px-3 py-1 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/15 text-xs font-bold text-solar-400 uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-full bg-neutral-50 backdrop-blur-md border border-neutral-300 text-xs font-bold text-solar-400 uppercase tracking-wider">
                   {product.category}
                 </span>
                 {product.inStock ? (
@@ -117,7 +117,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
 
             {/* Price Box */}
-            <div className="p-6 rounded-lg bg-neutral-900/90 border border-white/10 space-y-4">
+            <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
               <div className="flex items-baseline justify-between">
                 <div>
                   <span className="text-xs text-neutral-400 block">Unit Price (excl. VAT)</span>
@@ -134,13 +134,13 @@ export default async function ProductDetailPage({ params }: PageProps) {
               <div className="flex gap-3 pt-1">
                 <Link
                   href="/power/installation"
-                  className="flex-1 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 text-center text-xs font-semibold transition-colors"
+                  className="flex-1 py-2.5 rounded-xl bg-neutral-50 hover:bg-neutral-100 border border-neutral-200 text-neutral-300 text-center text-xs font-semibold transition-colors"
                 >
                   Book Installation Site Audit
                 </Link>
                 <Link
                   href="/quote"
-                  className="flex-1 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 text-center text-xs font-semibold transition-colors"
+                  className="flex-1 py-2.5 rounded-xl bg-neutral-50 hover:bg-neutral-100 border border-neutral-200 text-neutral-300 text-center text-xs font-semibold transition-colors"
                 >
                   Request B2B Corporate Invoice
                 </Link>
@@ -167,38 +167,38 @@ export default async function ProductDetailPage({ params }: PageProps) {
         {/* ===== STRUCTURED 4-PILLAR PRODUCT STORY ===== */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {/* 1. WHY THIS PRODUCT */}
-          <div className="p-6 rounded-lg bg-neutral-900/70 border border-white/10 space-y-3">
+          <div className="p-6 rounded-lg bg-white/70 border border-neutral-200 space-y-3">
             <div className="w-10 h-10 rounded-xl bg-solar-500/10 border border-solar-500/20 text-solar-400 flex items-center justify-center">
               <Icon name="sparkles" size={20} />
             </div>
-            <h3 className="font-heading font-bold text-base text-white">Why This Product</h3>
+            <h3 className="font-heading font-bold text-base text-neutral-900">Why This Product</h3>
             <p className="text-xs text-neutral-300 leading-relaxed">{product.whyThisProduct}</p>
           </div>
 
           {/* 2. WHAT IT DOES */}
-          <div className="p-6 rounded-lg bg-neutral-900/70 border border-white/10 space-y-3">
+          <div className="p-6 rounded-lg bg-white/70 border border-neutral-200 space-y-3">
             <div className="w-10 h-10 rounded-xl bg-primary-500/10 border border-primary-500/20 text-primary-400 flex items-center justify-center">
               <Icon name="zap" size={20} />
             </div>
-            <h3 className="font-heading font-bold text-base text-white">What It Does</h3>
+            <h3 className="font-heading font-bold text-base text-neutral-900">What It Does</h3>
             <p className="text-xs text-neutral-300 leading-relaxed">{product.whatItDoes}</p>
           </div>
 
           {/* 3. WHO IT IS FOR */}
-          <div className="p-6 rounded-lg bg-neutral-900/70 border border-white/10 space-y-3">
+          <div className="p-6 rounded-lg bg-white/70 border border-neutral-200 space-y-3">
             <div className="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 flex items-center justify-center">
               <Icon name="target" size={20} />
             </div>
-            <h3 className="font-heading font-bold text-base text-white">Who It Is For</h3>
+            <h3 className="font-heading font-bold text-base text-neutral-900">Who It Is For</h3>
             <p className="text-xs text-neutral-300 leading-relaxed">{product.whoItIsFor}</p>
           </div>
 
           {/* 4. WHAT IT CAN SUPPORT */}
-          <div className="p-6 rounded-lg bg-neutral-900/70 border border-white/10 space-y-3">
+          <div className="p-6 rounded-lg bg-white/70 border border-neutral-200 space-y-3">
             <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center">
               <Icon name="warehouse" size={20} />
             </div>
-            <h3 className="font-heading font-bold text-base text-white">What It Can Support</h3>
+            <h3 className="font-heading font-bold text-base text-neutral-900">What It Can Support</h3>
             <ul className="space-y-1 text-xs text-neutral-300">
               {product.whatItCanSupport.map((item, i) => (
                 <li key={i} className="flex items-start gap-1.5">
@@ -211,9 +211,9 @@ export default async function ProductDetailPage({ params }: PageProps) {
         </div>
 
         {/* ===== FULL TECHNICAL SPECIFICATIONS TABLE ===== */}
-        <div className="rounded-lg bg-neutral-900 border border-white/10 overflow-hidden mb-16">
-          <div className="p-6 border-b border-white/10">
-            <h2 className="font-heading font-bold text-xl text-white">
+        <div className="rounded-lg bg-white border border-neutral-200 overflow-hidden mb-16">
+          <div className="p-6 border-b border-neutral-200">
+            <h2 className="font-heading font-bold text-xl text-neutral-900">
               Full Technical Data Sheet
             </h2>
             <p className="text-xs text-neutral-400 mt-0.5">
@@ -226,7 +226,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               {Object.entries(product.specs).map(([key, val]) => (
                 <div
                   key={key}
-                  className="flex justify-between p-3.5 rounded-xl bg-white/[0.02] border border-white/5"
+                  className="flex justify-between p-3.5 rounded-xl bg-neutral-50 border border-white/5"
                 >
                   <span className="text-neutral-400 capitalize">
                     {key.replace(/([A-Z])/g, ' $1')}
@@ -241,8 +241,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
         {/* ===== COMPATIBLE COMPANION EQUIPMENT ===== */}
         {compatibleProducts.length > 0 && (
           <div className="space-y-6">
-            <div className="border-b border-white/10 pb-4">
-              <h2 className="font-heading font-bold text-xl text-white">
+            <div className="border-b border-neutral-200 pb-4">
+              <h2 className="font-heading font-bold text-xl text-neutral-900">
                 Compatible Companion Equipment
               </h2>
               <p className="text-xs text-neutral-400 mt-0.5">
@@ -254,10 +254,10 @@ export default async function ProductDetailPage({ params }: PageProps) {
               {compatibleProducts.map((companion) => (
                 <div
                   key={companion.id}
-                  className="p-5 rounded-lg bg-neutral-900/60 border border-white/10 flex flex-col justify-between hover:border-solar-500/30 transition-all"
+                  className="p-5 rounded-lg bg-white border border-neutral-200 flex flex-col justify-between hover:border-solar-500/30 transition-all"
                 >
                   <div>
-                    <div className="h-36 relative rounded-lg overflow-hidden bg-neutral-800 mb-3">
+                    <div className="h-36 relative rounded-lg overflow-hidden bg-neutral-100 mb-3">
                       <Image
                         src={companion.image}
                         alt={companion.name}
@@ -274,8 +274,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
                     </h3>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-xs font-bold text-white">
+                  <div className="mt-4 pt-3 border-t border-neutral-200 flex items-center justify-between">
+                    <span className="text-xs font-bold text-neutral-900">
                       {formatCurrency(companion.price)}
                     </span>
                     <Link

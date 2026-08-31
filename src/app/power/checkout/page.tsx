@@ -94,7 +94,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-5xl">
         {/* Header */}
         <div className="text-center space-y-3 mb-12">
@@ -102,13 +102,13 @@ export default function CheckoutPage() {
             <Icon name="warehouse" size={14} />
             Secure Order Checkout
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-white">
+          <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-neutral-900">
             Complete Your <span className="text-solar-400">Power Order.</span>
           </h1>
         </div>
 
         {items.length === 0 ? (
-          <div className="p-12 rounded-lg bg-neutral-900 border border-white/10 text-center space-y-4 max-w-md mx-auto">
+          <div className="p-12 rounded-lg bg-white border border-neutral-200 text-center space-y-4 max-w-md mx-auto">
             <Icon name="warehouse" size={40} className="mx-auto text-neutral-500" />
             <h3 className="font-bold text-white text-lg">Your cart is currently empty</h3>
             <p className="text-xs text-neutral-400">
@@ -135,8 +135,8 @@ export default function CheckoutPage() {
               )}
 
               {/* 1. Contact Information */}
-              <div className="p-6 rounded-lg bg-neutral-900 border border-white/10 space-y-4">
-                <h2 className="font-heading font-bold text-base text-white border-b border-white/10 pb-3 flex items-center gap-2">
+              <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
+                <h2 className="font-heading font-bold text-base text-white border-b border-neutral-200 pb-3 flex items-center gap-2">
                   <Icon name="target" size={16} className="text-solar-400" />
                   1. Customer Contact Details
                 </h2>
@@ -149,7 +149,7 @@ export default function CheckoutPage() {
                       required
                       value={customer.firstName}
                       onChange={(e) => setCustomer({ ...customer, firstName: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     />
                   </div>
                   <div>
@@ -158,7 +158,7 @@ export default function CheckoutPage() {
                       type="text"
                       value={customer.lastName}
                       onChange={(e) => setCustomer({ ...customer, lastName: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default function CheckoutPage() {
                       required
                       value={customer.email}
                       onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     />
                   </div>
                   <div>
@@ -181,15 +181,15 @@ export default function CheckoutPage() {
                       required
                       value={customer.phone}
                       onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     />
                   </div>
                 </div>
               </div>
 
               {/* 2. Fulfillment Method */}
-              <div className="p-6 rounded-lg bg-neutral-900 border border-white/10 space-y-4">
-                <h2 className="font-heading font-bold text-base text-white border-b border-white/10 pb-3 flex items-center gap-2">
+              <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
+                <h2 className="font-heading font-bold text-base text-white border-b border-neutral-200 pb-3 flex items-center gap-2">
                   <Icon name="warehouse" size={16} className="text-solar-400" />
                   2. Delivery & Fulfillment
                 </h2>
@@ -200,7 +200,7 @@ export default function CheckoutPage() {
                     className={`p-4 rounded-lg border cursor-pointer transition-all ${
                       fulfillmentType === 'delivery'
                         ? 'bg-solar-500/15 border-solar-500/60 text-white'
-                        : 'bg-white/[0.02] border-white/10 text-neutral-400'
+                        : 'bg-neutral-50 border-neutral-200 text-neutral-400'
                     }`}
                   >
                     <span className="font-bold text-xs block">Site Delivery</span>
@@ -212,7 +212,7 @@ export default function CheckoutPage() {
                     className={`p-4 rounded-lg border cursor-pointer transition-all ${
                       fulfillmentType === 'collection'
                         ? 'bg-solar-500/15 border-solar-500/60 text-white'
-                        : 'bg-white/[0.02] border-white/10 text-neutral-400'
+                        : 'bg-neutral-50 border-neutral-200 text-neutral-400'
                     }`}
                   >
                     <span className="font-bold text-xs block">Depot Collection</span>
@@ -229,7 +229,7 @@ export default function CheckoutPage() {
                         required
                         value={deliveryAddress.address}
                         onChange={(e) => setDeliveryAddress({ ...deliveryAddress, address: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                        className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                         placeholder="Street address / landmark"
                       />
                     </div>
@@ -241,7 +241,7 @@ export default function CheckoutPage() {
                           required
                           value={deliveryAddress.city}
                           onChange={(e) => setDeliveryAddress({ ...deliveryAddress, city: e.target.value })}
-                          className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                          className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                         />
                       </div>
                       <div>
@@ -249,7 +249,7 @@ export default function CheckoutPage() {
                         <select
                           value={deliveryAddress.state}
                           onChange={(e) => setDeliveryAddress({ ...deliveryAddress, state: e.target.value })}
-                          className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                          className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                         >
                           <option value="Lagos">Lagos</option>
                           <option value="Abuja (FCT)">Abuja (FCT)</option>
@@ -268,7 +268,7 @@ export default function CheckoutPage() {
                     <select
                       value={depotLocation}
                       onChange={(e) => setDepotLocation(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
                     >
                       <option value="Lagos Central Hub (Ikeja, Lagos)">Lagos Central Logistics Hub (Ikeja)</option>
                       <option value="Port Harcourt Industrial Depot (Trans-Amadi, Rivers)">Port Harcourt Industrial Depot (Trans-Amadi)</option>
@@ -279,8 +279,8 @@ export default function CheckoutPage() {
               </div>
 
               {/* 3. Payment Method (Sandbox Notice) */}
-              <div className="p-6 rounded-lg bg-neutral-900 border border-white/10 space-y-4">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
+                <div className="flex items-center justify-between border-b border-neutral-200 pb-3">
                   <h2 className="font-heading font-bold text-base text-white flex items-center gap-2">
                     <Icon name="shield" size={16} className="text-solar-400" />
                     3. Payment Channel
@@ -302,7 +302,7 @@ export default function CheckoutPage() {
                       className={`p-3.5 rounded-xl border text-center cursor-pointer transition-all ${
                         paymentMethod === m.id
                           ? 'bg-solar-500/15 border-solar-500/60 text-white font-bold'
-                          : 'bg-white/[0.02] border-white/10 text-neutral-400'
+                          : 'bg-neutral-50 border-neutral-200 text-neutral-400'
                       }`}
                     >
                       <span className="text-xs block">{m.label}</span>
@@ -310,7 +310,7 @@ export default function CheckoutPage() {
                   ))}
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5 text-[11px] text-neutral-400 leading-relaxed">
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-white/5 text-[11px] text-neutral-400 leading-relaxed">
                   🔒 <strong>Phase 2 Environment:</strong> Production payment gateway credentials will be activated upon launch. Placing an order will generate a confirmed structured order reservation and invoice reference.
                 </div>
               </div>
@@ -318,8 +318,8 @@ export default function CheckoutPage() {
 
             {/* Right Column: Order Summary & Place Order (5 cols) */}
             <div className="lg:col-span-5 sticky top-28 space-y-6">
-              <div className="p-7 rounded-lg bg-neutral-900 border border-white/15 backdrop-blur-md shadow-xl space-y-6">
-                <h3 className="font-heading font-bold text-lg text-white border-b border-white/10 pb-3">
+              <div className="p-7 rounded-lg bg-white border border-neutral-300 backdrop-blur-md shadow-xl space-y-6">
+                <h3 className="font-heading font-bold text-lg text-white border-b border-neutral-200 pb-3">
                   Order Summary ({items.length} {items.length === 1 ? 'item' : 'items'})
                 </h3>
 
@@ -339,7 +339,7 @@ export default function CheckoutPage() {
                 </div>
 
                 {/* Costs Breakdown */}
-                <div className="space-y-2 text-xs border-t border-white/10 pt-3">
+                <div className="space-y-2 text-xs border-t border-neutral-200 pt-3">
                   <div className="flex justify-between text-neutral-400">
                     <span>Equipment Subtotal</span>
                     <span className="text-white font-medium">{formatCurrency(subtotal)}</span>
@@ -356,7 +356,7 @@ export default function CheckoutPage() {
                       <span className="text-white font-medium">+{formatCurrency(shippingFee)}</span>
                     </div>
                   )}
-                  <div className="flex justify-between text-sm font-bold text-white pt-2 border-t border-white/10">
+                  <div className="flex justify-between text-sm font-bold text-white pt-2 border-t border-neutral-200">
                     <span>Total Amount</span>
                     <span className="text-solar-400 text-xl">{formatCurrency(grandTotal)}</span>
                   </div>

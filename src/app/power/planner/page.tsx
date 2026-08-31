@@ -107,7 +107,7 @@ export default function PowerPlannerPage() {
     : powerPackages[1];
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-5xl">
         {/* Header Title */}
         <div className="text-center space-y-3 mb-10">
@@ -115,7 +115,7 @@ export default function PowerPlannerPage() {
             <Icon name="zap" size={14} />
             AI Power Sizing Planner
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
             Find Your <span className="text-solar-400">Ideal Power Solution.</span>
           </h1>
           <p className="text-sm text-neutral-400 max-w-xl mx-auto">
@@ -133,7 +133,7 @@ export default function PowerPlannerPage() {
               <span className={step >= 4 ? 'text-solar-400' : ''}>4. Property</span>
               <span className={step >= 5 ? 'text-solar-400' : ''}>5. Budget</span>
             </div>
-            <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+            <div className="h-2 w-full bg-neutral-100 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-primary-600 via-orange-500 to-amber-500 transition-all duration-300"
                 style={{ width: `${(step / 5) * 100}%` }}
@@ -156,7 +156,7 @@ export default function PowerPlannerPage() {
         {step === 1 && (
           <div className="space-y-6">
             <div className="text-center">
-              <h2 className="text-xl sm:text-2xl font-bold text-white">
+              <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
                 What are you trying to power?
               </h2>
               <p className="text-xs text-neutral-400 mt-1">
@@ -175,7 +175,7 @@ export default function PowerPlannerPage() {
                     className={`p-5 rounded-lg border transition-all flex flex-col justify-between ${
                       isSelected
                         ? 'bg-solar-500/10 border-solar-500/40 shadow-lg shadow-amber-950/20'
-                        : 'bg-white/[0.03] border-white/10 hover:border-white/20'
+                        : 'bg-white/[0.03] border-neutral-200 hover:border-neutral-300'
                     }`}
                   >
                     <div>
@@ -184,7 +184,7 @@ export default function PowerPlannerPage() {
                           className={`w-10 h-10 rounded-xl flex items-center justify-center ${
                             isSelected
                               ? 'bg-solar-500/20 text-solar-300'
-                              : 'bg-white/5 text-neutral-400'
+                              : 'bg-neutral-50 text-neutral-400'
                           }`}
                         >
                           <Icon name={appliance.icon || 'zap'} size={20} />
@@ -194,20 +194,20 @@ export default function PowerPlannerPage() {
                         </span>
                       </div>
 
-                      <h3 className="font-semibold text-sm text-white">{appliance.name}</h3>
+                      <h3 className="font-semibold text-sm text-neutral-900">{appliance.name}</h3>
                       <p className="text-[11px] text-neutral-400 mt-1 leading-snug">
                         {appliance.description}
                       </p>
                     </div>
 
                     {/* Quantity Controls */}
-                    <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+                    <div className="mt-4 pt-3 border-t border-neutral-200 flex items-center justify-between">
                       <span className="text-xs text-neutral-400">Quantity</span>
-                      <div className="inline-flex items-center border border-white/15 rounded-lg bg-black/40">
+                      <div className="inline-flex items-center border border-neutral-300 rounded-lg bg-black/40">
                         <button
                           onClick={() => updateQuantity(appliance.id, -1)}
                           disabled={qty === 0}
-                          className="px-2.5 py-1 text-xs text-neutral-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+                          className="px-2.5 py-1 text-xs text-neutral-400 hover:text-neutral-900 disabled:opacity-30 disabled:cursor-not-allowed"
                           aria-label={`Decrease ${appliance.name}`}
                         >
                           -
@@ -217,7 +217,7 @@ export default function PowerPlannerPage() {
                         </span>
                         <button
                           onClick={() => updateQuantity(appliance.id, 1)}
-                          className="px-2.5 py-1 text-xs text-solar-400 hover:text-solar-300 hover:bg-white/10"
+                          className="px-2.5 py-1 text-xs text-solar-400 hover:text-solar-300 hover:bg-neutral-100"
                           aria-label={`Increase ${appliance.name}`}
                         >
                           +
@@ -253,7 +253,7 @@ export default function PowerPlannerPage() {
         {step === 2 && (
           <div className="max-w-2xl mx-auto space-y-8">
             <div className="text-center">
-              <h2 className="text-xl sm:text-2xl font-bold text-white">
+              <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
                 How many hours of backup power do you need?
               </h2>
               <p className="text-xs text-neutral-400 mt-1">
@@ -261,7 +261,7 @@ export default function PowerPlannerPage() {
               </p>
             </div>
 
-            <div className="p-8 rounded-lg bg-white/[0.03] border border-white/10 text-center space-y-6">
+            <div className="p-8 rounded-lg bg-white/[0.03] border border-neutral-200 text-center space-y-6">
               <div className="text-5xl font-extrabold text-solar-400">
                 {dailyHours} <span className="text-2xl text-neutral-400">Hours / Day</span>
               </div>
@@ -273,7 +273,7 @@ export default function PowerPlannerPage() {
                 step={1}
                 value={dailyHours}
                 onChange={(e) => setDailyHours(Number(e.target.value))}
-                className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-2 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-amber-400"
               />
 
               <div className="grid grid-cols-4 gap-2 pt-2">
@@ -289,7 +289,7 @@ export default function PowerPlannerPage() {
                     className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-all ${
                       dailyHours === preset.hours
                         ? 'bg-solar-500/20 border-solar-500/40 text-solar-300'
-                        : 'bg-white/5 border-white/10 text-neutral-400 hover:text-white'
+                        : 'bg-neutral-50 border-neutral-200 text-neutral-400 hover:text-neutral-900'
                     }`}
                   >
                     {preset.label}
@@ -301,7 +301,7 @@ export default function PowerPlannerPage() {
             <div className="flex justify-between pt-4">
               <button
                 onClick={() => setStep(1)}
-                className="px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 text-xs font-semibold"
+                className="px-6 py-3 rounded-full bg-neutral-50 hover:bg-neutral-100 text-neutral-300 text-xs font-semibold"
               >
                 Back
               </button>
@@ -320,7 +320,7 @@ export default function PowerPlannerPage() {
         {step === 3 && (
           <div className="max-w-2xl mx-auto space-y-8">
             <div className="text-center">
-              <h2 className="text-xl sm:text-2xl font-bold text-white">
+              <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
                 What is your primary energy priority?
               </h2>
               <p className="text-xs text-neutral-400 mt-1">
@@ -361,13 +361,13 @@ export default function PowerPlannerPage() {
                   className={`p-6 rounded-lg border cursor-pointer transition-all ${
                     priority === item.id
                       ? 'bg-solar-500/10 border-solar-500/50 shadow-lg shadow-amber-950/30'
-                      : 'bg-white/[0.03] border-white/10 hover:border-white/20'
+                      : 'bg-white/[0.03] border-neutral-200 hover:border-neutral-300'
                   }`}
                 >
                   <div className="w-10 h-10 rounded-xl bg-solar-500/20 text-solar-400 flex items-center justify-center mb-4">
                     <Icon name={item.icon} size={20} />
                   </div>
-                  <h3 className="font-bold text-sm text-white">{item.title}</h3>
+                  <h3 className="font-bold text-sm text-neutral-900">{item.title}</h3>
                   <p className="text-xs text-neutral-400 mt-1 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -376,7 +376,7 @@ export default function PowerPlannerPage() {
             <div className="flex justify-between pt-4">
               <button
                 onClick={() => setStep(2)}
-                className="px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 text-xs font-semibold"
+                className="px-6 py-3 rounded-full bg-neutral-50 hover:bg-neutral-100 text-neutral-300 text-xs font-semibold"
               >
                 Back
               </button>
@@ -395,7 +395,7 @@ export default function PowerPlannerPage() {
         {step === 4 && (
           <div className="max-w-2xl mx-auto space-y-8">
             <div className="text-center">
-              <h2 className="text-xl sm:text-2xl font-bold text-white">
+              <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
                 What type of property is this for?
               </h2>
               <p className="text-xs text-neutral-400 mt-1">
@@ -417,10 +417,10 @@ export default function PowerPlannerPage() {
                   className={`p-5 rounded-lg border cursor-pointer text-center transition-all ${
                     propertyType === prop.id
                       ? 'bg-solar-500/10 border-solar-500/50 text-solar-300'
-                      : 'bg-white/[0.03] border-white/10 text-neutral-300 hover:border-white/20'
+                      : 'bg-white/[0.03] border-neutral-200 text-neutral-300 hover:border-neutral-300'
                   }`}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mx-auto mb-3 text-solar-400">
+                  <div className="w-10 h-10 rounded-xl bg-neutral-50 flex items-center justify-center mx-auto mb-3 text-solar-400">
                     <Icon name={prop.icon} size={20} />
                   </div>
                   <h3 className="font-semibold text-xs">{prop.title}</h3>
@@ -431,7 +431,7 @@ export default function PowerPlannerPage() {
             <div className="flex justify-between pt-4">
               <button
                 onClick={() => setStep(3)}
-                className="px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 text-xs font-semibold"
+                className="px-6 py-3 rounded-full bg-neutral-50 hover:bg-neutral-100 text-neutral-300 text-xs font-semibold"
               >
                 Back
               </button>
@@ -450,7 +450,7 @@ export default function PowerPlannerPage() {
         {step === 5 && (
           <div className="max-w-2xl mx-auto space-y-8">
             <div className="text-center">
-              <h2 className="text-xl sm:text-2xl font-bold text-white">
+              <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
                 What is your estimated investment budget?
               </h2>
               <p className="text-xs text-neutral-400 mt-1">
@@ -491,7 +491,7 @@ export default function PowerPlannerPage() {
                   className={`p-6 rounded-lg border cursor-pointer transition-all ${
                     budgetRange === tier.id
                       ? 'bg-solar-500/10 border-solar-500/50 shadow-lg shadow-amber-950/30'
-                      : 'bg-white/[0.03] border-white/10 hover:border-white/20'
+                      : 'bg-white/[0.03] border-neutral-200 hover:border-neutral-300'
                   }`}
                 >
                   <span className="text-xs font-bold text-solar-400 block">{tier.range}</span>
@@ -504,7 +504,7 @@ export default function PowerPlannerPage() {
             <div className="flex justify-between pt-4">
               <button
                 onClick={() => setStep(4)}
-                className="px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 text-xs font-semibold"
+                className="px-6 py-3 rounded-full bg-neutral-50 hover:bg-neutral-100 text-neutral-300 text-xs font-semibold"
               >
                 Back
               </button>
@@ -533,10 +533,10 @@ export default function PowerPlannerPage() {
         {step === 6 && estimate && (
           <div className="space-y-10 animate-fade-in">
             {/* Top Requirement Metrics */}
-            <div className="p-8 rounded-lg bg-neutral-900 border border-white/15 backdrop-blur-md shadow-xl relative overflow-hidden">
+            <div className="p-8 rounded-lg bg-white border border-neutral-300 backdrop-blur-md shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-80 h-80 bg-solar-500/10 rounded-full blur-3xl" />
 
-              <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-white/10 gap-4">
+              <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-neutral-200 gap-4">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-solar-400">
                     Sizing Results
@@ -547,14 +547,14 @@ export default function PowerPlannerPage() {
                 </div>
                 <button
                   onClick={() => setStep(1)}
-                  className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-neutral-300 text-xs font-semibold border border-white/10 self-start md:self-auto"
+                  className="px-4 py-2 rounded-xl bg-neutral-50 hover:bg-neutral-100 text-neutral-300 text-xs font-semibold border border-neutral-200 self-start md:self-auto"
                 >
                   Adjust Assumptions
                 </button>
               </div>
 
               {/* Sizing Stats Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-b border-white/10">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-b border-neutral-200">
                 <div className="p-4 rounded-lg bg-white/[0.03] border border-white/5">
                   <span className="text-xs text-neutral-400 block">Total Running Load</span>
                   <span className="text-xl sm:text-2xl font-bold text-white mt-1 block">
@@ -615,7 +615,7 @@ export default function PowerPlannerPage() {
 
             {/* Recommended Turnkey Package Handoff */}
             {matchedPkg && (
-              <div className="p-8 rounded-lg bg-neutral-900/60 border border-white/10 space-y-6">
+              <div className="p-8 rounded-lg bg-white border border-neutral-200 space-y-6">
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-xs font-bold text-solar-400 uppercase tracking-widest">
@@ -646,7 +646,7 @@ export default function PowerPlannerPage() {
 
                   <Link
                     href={`/power/builder?package=${matchedPkg.slug}`}
-                    className="py-3.5 px-4 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-xs text-center flex items-center justify-center gap-2"
+                    className="py-3.5 px-4 rounded-lg bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-white font-semibold text-xs text-center flex items-center justify-center gap-2"
                   >
                     <Icon name="settings" size={16} />
                     Customize in System Builder
@@ -654,7 +654,7 @@ export default function PowerPlannerPage() {
 
                   <Link
                     href="/power/installation"
-                    className="py-3.5 px-4 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-xs text-center flex items-center justify-center gap-2"
+                    className="py-3.5 px-4 rounded-lg bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-white font-semibold text-xs text-center flex items-center justify-center gap-2"
                   >
                     <Icon name="hard-hat" size={16} />
                     Book Site Audit
@@ -662,7 +662,7 @@ export default function PowerPlannerPage() {
 
                   <Link
                     href="/quote"
-                    className="py-3.5 px-4 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 font-semibold text-xs text-center flex items-center justify-center gap-2"
+                    className="py-3.5 px-4 rounded-lg bg-neutral-50 hover:bg-neutral-100 border border-neutral-200 text-neutral-300 font-semibold text-xs text-center flex items-center justify-center gap-2"
                   >
                     <Icon name="file-text" size={16} />
                     Request B2B Invoice

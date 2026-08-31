@@ -41,7 +41,7 @@ export default function PowerSavingsSimulatorPage() {
   const paybackMonths = Number(((estimatedSystemCost / projectedAnnualSavings) * 12).toFixed(1));
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-6xl">
         {/* Header */}
         <div className="text-center space-y-3 mb-12 max-w-3xl mx-auto">
@@ -49,7 +49,7 @@ export default function PowerSavingsSimulatorPage() {
             <Icon name="chart" size={14} />
             Financial & Fuel ROI Model
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
             Power Savings <span className="text-solar-400">Simulator.</span>
           </h1>
           <p className="text-sm text-neutral-400">
@@ -59,9 +59,9 @@ export default function PowerSavingsSimulatorPage() {
 
         <div className="grid lg:grid-cols-12 gap-8 items-start mb-16">
           {/* Left Column: Interactive Inputs (5 cols) */}
-          <div className="lg:col-span-5 p-7 rounded-lg bg-neutral-900 border border-white/10 space-y-6">
-            <div className="border-b border-white/10 pb-3">
-              <h2 className="font-heading font-bold text-lg text-white">
+          <div className="lg:col-span-5 p-7 rounded-lg bg-white border border-neutral-200 space-y-6">
+            <div className="border-b border-neutral-200 pb-3">
+              <h2 className="font-heading font-bold text-lg text-neutral-900">
                 1. Your Current Energy Situation
               </h2>
               <p className="text-xs text-neutral-400 mt-0.5">
@@ -82,7 +82,7 @@ export default function PowerSavingsSimulatorPage() {
                 step={0.5}
                 value={generatorKva}
                 onChange={(e) => setGeneratorKva(Number(e.target.value))}
-                className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-2 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-amber-400"
               />
               <div className="flex justify-between text-[10px] text-neutral-500">
                 <span>3.5kVA (Home)</span>
@@ -104,7 +104,7 @@ export default function PowerSavingsSimulatorPage() {
                 step={1}
                 value={dailyHours}
                 onChange={(e) => setDailyHours(Number(e.target.value))}
-                className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-2 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-amber-400"
               />
               <div className="flex justify-between text-[10px] text-neutral-500">
                 <span>2h (Peak Only)</span>
@@ -122,7 +122,7 @@ export default function PowerSavingsSimulatorPage() {
                 type="number"
                 value={fuelPrice}
                 onChange={(e) => setFuelPrice(Number(e.target.value))}
-                className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
               />
             </div>
 
@@ -135,12 +135,12 @@ export default function PowerSavingsSimulatorPage() {
                 type="number"
                 value={monthlyGridBill}
                 onChange={(e) => setMonthlyGridBill(Number(e.target.value))}
-                className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-white/15 text-white text-xs focus:border-amber-400 focus:outline-none"
+                className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
               />
             </div>
 
             {/* Target Solar Offset */}
-            <div className="space-y-2 pt-2 border-t border-white/10">
+            <div className="space-y-2 pt-2 border-t border-neutral-200">
               <div className="flex justify-between text-xs">
                 <label className="font-semibold text-neutral-300">Target Solar Offset</label>
                 <span className="font-bold text-green-400">{targetOffsetPercent}% Offset</span>
@@ -152,7 +152,7 @@ export default function PowerSavingsSimulatorPage() {
                 step={5}
                 value={targetOffsetPercent}
                 onChange={(e) => setTargetOffsetPercent(Number(e.target.value))}
-                className="w-full h-2 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-400"
+                className="w-full h-2 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-green-400"
               />
             </div>
           </div>
@@ -160,10 +160,10 @@ export default function PowerSavingsSimulatorPage() {
           {/* Right Column: Dynamic Financial Forecast (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             {/* Main Savings Highlights */}
-            <div className="p-8 rounded-lg bg-neutral-900 border border-white/15 backdrop-blur-md shadow-xl relative overflow-hidden space-y-6">
+            <div className="p-8 rounded-lg bg-white border border-neutral-300 backdrop-blur-md shadow-xl relative overflow-hidden space-y-6">
               <div className="absolute top-0 right-0 w-80 h-80 bg-green-500/10 rounded-full blur-3xl" />
 
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-white/10 pb-4 gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-neutral-200 pb-4 gap-2">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-green-400">
                     Projected Return on Investment
@@ -201,7 +201,7 @@ export default function PowerSavingsSimulatorPage() {
               </div>
 
               {/* Key Payback Metrics Strip */}
-              <div className="grid sm:grid-cols-2 gap-4 py-2 border-t border-white/10 text-xs">
+              <div className="grid sm:grid-cols-2 gap-4 py-2 border-t border-neutral-200 text-xs">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-solar-500/10 text-solar-400 flex items-center justify-center shrink-0">
                     <Icon name="trending-up" size={18} />
@@ -224,14 +224,14 @@ export default function PowerSavingsSimulatorPage() {
               </div>
 
               {/* Cost Breakdown Details */}
-              <div className="p-4 rounded-lg bg-white/[0.02] border border-white/5 space-y-2 text-xs text-neutral-300">
+              <div className="p-4 rounded-lg bg-neutral-50 border border-white/5 space-y-2 text-xs text-neutral-300">
                 <div className="flex justify-between">
                   <span>Current Monthly Generator Fuel Spend:</span>
-                  <span className="font-semibold text-white">{formatCurrency(monthlyFuelSpend)}</span>
+                  <span className="font-semibold text-neutral-900">{formatCurrency(monthlyFuelSpend)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Current Monthly Generator Maintenance:</span>
-                  <span className="font-semibold text-white">{formatCurrency(monthlyMaintenanceSpend)}</span>
+                  <span className="font-semibold text-neutral-900">{formatCurrency(monthlyMaintenanceSpend)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Current Total Annual Energy Expenditure:</span>
@@ -250,9 +250,9 @@ export default function PowerSavingsSimulatorPage() {
             </div>
 
             {/* Direct Sizing Handoff */}
-            <div className="p-6 rounded-lg bg-white/[0.03] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="p-6 rounded-lg bg-white/[0.03] border border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <h4 className="font-bold text-sm text-white">Size a System for Your Facility</h4>
+                <h4 className="font-bold text-sm text-neutral-900">Size a System for Your Facility</h4>
                 <p className="text-xs text-neutral-400">Match your {generatorKva}kVA load with our AI Power Planner.</p>
               </div>
               <Link

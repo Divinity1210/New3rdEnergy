@@ -12,15 +12,15 @@ export default async function OrderConfirmationPage({ params }: OrderPageProps) 
   const { orderId } = await params;
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-3xl">
-        <div className="p-8 sm:p-12 rounded-lg bg-neutral-900 border border-white/10 shadow-xl space-y-8 animate-fade-in">
+        <div className="p-8 sm:p-12 rounded-lg bg-white border border-neutral-200 shadow-xl space-y-8 animate-fade-in">
           {/* Top Success Badge */}
           <div className="text-center space-y-3">
             <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 flex items-center justify-center mx-auto">
               <Icon name="check-circle" size={32} />
             </div>
-            <h1 className="font-heading font-bold text-2xl sm:text-3xl text-white">
+            <h1 className="font-heading font-bold text-2xl sm:text-3xl text-neutral-900">
               Order Confirmed & Logged
             </h1>
             <p className="text-xs text-neutral-400">

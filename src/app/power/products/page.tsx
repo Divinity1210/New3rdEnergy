@@ -46,16 +46,16 @@ export default function PowerProductsPage() {
     : [];
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide">
         {/* Header Title */}
         <div className="text-center space-y-3 mb-10 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-solar-500/10 border border-solar-500/20 text-solar-400 text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-solar-50 border border-solar-200 text-solar-700 text-xs font-semibold">
             <Icon name="warehouse" size={14} />
             Certified Power Equipment
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-white">
-            Shop Power & <span className="text-solar-400">Solar Solutions.</span>
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
+            Shop Power & <span className="text-solar-600">Solar Solutions.</span>
           </h1>
           <p className="text-sm text-neutral-400">
             Engineered hybrid inverters, automotive-grade LiFePO4 battery modules, Tier-1 solar panels, and pre-configured turnkey energy systems.
@@ -71,7 +71,7 @@ export default function PowerProductsPage() {
               placeholder="Search by keyword, voltage, or capacity (e.g. 5kVA, LiFePO4, 550W)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-5 py-3.5 pl-12 rounded-full bg-neutral-900/90 border border-white/15 text-white text-xs sm:text-sm placeholder:text-neutral-500 focus:border-amber-400 focus:outline-none backdrop-blur-md shadow-lg"
+              className="w-full px-5 py-3.5 pl-12 rounded-2xl bg-white border border-neutral-200 text-neutral-900 text-xs sm:text-sm placeholder:text-neutral-400 focus:border-solar-400 focus:ring-2 focus:ring-solar-100 focus:outline-none shadow-sm"
             />
             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400">
               <Icon name="search" size={18} />
@@ -79,7 +79,7 @@ export default function PowerProductsPage() {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-neutral-600"
               >
                 <Icon name="x" size={16} />
               </button>
@@ -94,8 +94,8 @@ export default function PowerProductsPage() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-xs font-semibold border transition-all flex items-center gap-2 ${
                   activeCategory === cat.id
-                    ? 'bg-gradient-to-r from-primary-600 to-amber-500 text-white border-transparent shadow-lg shadow-primary-950/40'
-                    : 'bg-white/5 border-white/10 text-neutral-400 hover:text-white hover:border-white/20'
+                    ? 'bg-solar-600 text-white border-solar-600 shadow-sm shadow-solar-600/20'
+                    : 'bg-white border-neutral-200 text-neutral-500 hover:text-neutral-800 hover:border-neutral-300'
                 }`}
               >
                 <Icon name={cat.icon || 'grid'} size={14} />
@@ -105,19 +105,19 @@ export default function PowerProductsPage() {
           </div>
         </div>
 
-        {/* ===== TURNKEY PACKAGES SECTION (IF ACTIVE) ===== */}
+        {/* ===== TURNKEY PACKAGES SECTION ===== */}
         {showPackages && filteredPackages.length > 0 && (
           <div className="mb-14 space-y-6">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
               <div>
-                <h2 className="font-heading font-bold text-xl text-white">
+                <h2 className="font-heading font-bold text-xl text-neutral-900">
                   Turnkey Power Packages
                 </h2>
                 <p className="text-xs text-neutral-400 mt-0.5">
                   Complete systems including Inverter, Battery, Solar Array & Certified Installation.
                 </p>
               </div>
-              <span className="px-3 py-1 rounded-full bg-solar-500/10 border border-solar-500/30 text-solar-300 text-xs font-bold">
+              <span className="px-3 py-1 rounded-full bg-solar-50 border border-solar-200 text-solar-700 text-xs font-bold">
                 {filteredPackages.length} Packages
               </span>
             </div>
@@ -126,10 +126,10 @@ export default function PowerProductsPage() {
               {filteredPackages.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className="rounded-lg bg-neutral-900 border border-white/10 overflow-hidden flex flex-col justify-between hover:border-solar-500/40 transition-all group shadow-xl"
+                  className="rounded-2xl bg-white border border-neutral-200 overflow-hidden flex flex-col justify-between hover:border-solar-300 hover:shadow-xl hover:shadow-solar-100/40 transition-all group"
                 >
                   <div>
-                    <div className="h-48 relative overflow-hidden bg-neutral-800">
+                    <div className="h-48 relative overflow-hidden bg-neutral-100">
                       <Image
                         src={pkg.image}
                         alt={pkg.name}
@@ -137,30 +137,30 @@ export default function PowerProductsPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent" />
-                      <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/20 text-[10px] font-bold text-solar-400 uppercase">
+                      <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
+                      <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-neutral-200 text-[10px] font-bold text-solar-700 uppercase">
                         {pkg.tier}
                       </span>
                     </div>
 
                     <div className="p-6 space-y-3">
-                      <h3 className="font-heading font-bold text-base text-white group-hover:text-solar-400 transition-colors line-clamp-2">
+                      <h3 className="font-heading font-bold text-base text-neutral-900 group-hover:text-solar-700 transition-colors line-clamp-2">
                         {pkg.name}
                       </h3>
                       <p className="text-xs text-neutral-400 line-clamp-2">{pkg.tagline}</p>
 
-                      <div className="grid grid-cols-3 gap-1.5 py-2.5 border-y border-white/10 text-center text-xs">
-                        <div className="p-1.5 rounded-lg bg-white/[0.02]">
-                          <span className="font-bold text-white block">{pkg.ratingKva}kVA</span>
-                          <span className="text-[10px] text-neutral-500">Inverter</span>
+                      <div className="grid grid-cols-3 gap-1.5 py-2.5 border-y border-neutral-100 text-center text-xs">
+                        <div className="p-1.5 rounded-lg bg-neutral-50">
+                          <span className="font-bold text-neutral-900 block">{pkg.ratingKva}kVA</span>
+                          <span className="text-[10px] text-neutral-400">Inverter</span>
                         </div>
-                        <div className="p-1.5 rounded-lg bg-white/[0.02]">
-                          <span className="font-bold text-solar-400 block">{pkg.batteryKwh}kWh</span>
-                          <span className="text-[10px] text-neutral-500">LiFePO4</span>
+                        <div className="p-1.5 rounded-lg bg-solar-50">
+                          <span className="font-bold text-solar-700 block">{pkg.batteryKwh}kWh</span>
+                          <span className="text-[10px] text-neutral-400">LiFePO4</span>
                         </div>
-                        <div className="p-1.5 rounded-lg bg-white/[0.02]">
-                          <span className="font-bold text-white block">{pkg.solarKwp}kWp</span>
-                          <span className="text-[10px] text-neutral-500">Solar PV</span>
+                        <div className="p-1.5 rounded-lg bg-neutral-50">
+                          <span className="font-bold text-neutral-900 block">{pkg.solarKwp}kWp</span>
+                          <span className="text-[10px] text-neutral-400">Solar PV</span>
                         </div>
                       </div>
                     </div>
@@ -169,7 +169,7 @@ export default function PowerProductsPage() {
                   <div className="p-6 pt-0 space-y-2">
                     <div className="flex items-baseline justify-between mb-1">
                       <span className="text-xs text-neutral-400">Turnkey Total</span>
-                      <span className="text-lg font-bold text-solar-400">
+                      <span className="text-lg font-bold text-solar-700">
                         {formatCurrency(pkg.price)}
                       </span>
                     </div>
@@ -177,14 +177,14 @@ export default function PowerProductsPage() {
                     <div className="grid grid-cols-2 gap-2">
                       <button
                         onClick={() => addPackage(pkg)}
-                        className="py-2.5 rounded-xl bg-gradient-to-r from-primary-600 to-amber-500 text-white font-bold text-xs hover:opacity-95 transition-opacity flex items-center justify-center gap-1.5"
+                        className="py-2.5 rounded-xl bg-solar-600 hover:bg-solar-500 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm shadow-solar-600/20"
                       >
                         <Icon name="warehouse" size={14} />
                         Add to Cart
                       </button>
                       <Link
                         href={`/power/builder?package=${pkg.slug}`}
-                        className="py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-xs text-center flex items-center justify-center gap-1"
+                        className="py-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-neutral-700 font-semibold text-xs text-center flex items-center justify-center gap-1"
                       >
                         <Icon name="settings" size={14} />
                         Customize
@@ -200,9 +200,9 @@ export default function PowerProductsPage() {
         {/* ===== INDIVIDUAL PRODUCTS GRID ===== */}
         {activeCategory !== 'packages' && (
           <div className="space-y-6">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
               <div>
-                <h2 className="font-heading font-bold text-xl text-white">
+                <h2 className="font-heading font-bold text-xl text-neutral-900">
                   Individual Equipment & Components
                 </h2>
                 <p className="text-xs text-neutral-400 mt-0.5">
@@ -212,9 +212,9 @@ export default function PowerProductsPage() {
             </div>
 
             {filteredProducts.length === 0 ? (
-              <div className="text-center py-16 bg-white/[0.02] rounded-lg border border-white/10">
-                <Icon name="search" size={32} className="mx-auto mb-3 text-neutral-500" />
-                <h3 className="font-bold text-white text-base">No products match your search</h3>
+              <div className="text-center py-16 bg-white rounded-2xl border border-neutral-200">
+                <Icon name="search" size={32} className="mx-auto mb-3 text-neutral-300" />
+                <h3 className="font-bold text-neutral-900 text-base">No products match your search</h3>
                 <p className="text-xs text-neutral-400 mt-1">
                   Try adjusting your keywords or clearing the category filter.
                 </p>
@@ -223,7 +223,7 @@ export default function PowerProductsPage() {
                     setActiveCategory('all');
                     setSearchQuery('');
                   }}
-                  className="mt-4 px-5 py-2 rounded-full bg-white/10 text-white text-xs font-semibold hover:bg-white/15"
+                  className="mt-4 px-5 py-2 rounded-full bg-neutral-100 text-neutral-700 text-xs font-semibold hover:bg-neutral-200"
                 >
                   Reset Filters
                 </button>
@@ -233,13 +233,13 @@ export default function PowerProductsPage() {
                 {filteredProducts.map((product) => (
                   <div
                     key={product.id}
-                    className="rounded-lg bg-neutral-900/80 border border-white/10 overflow-hidden flex flex-col justify-between hover:border-solar-500/40 transition-all group shadow-xl"
+                    className="rounded-2xl bg-white border border-neutral-200 overflow-hidden flex flex-col justify-between hover:border-solar-300 hover:shadow-xl hover:shadow-solar-100/40 transition-all group"
                   >
                     <div>
                       {/* Product Thumbnail */}
                       <Link
                         href={`/power/products/${product.slug}`}
-                        className="block h-52 relative overflow-hidden bg-neutral-800"
+                        className="block h-52 relative overflow-hidden bg-neutral-100"
                       >
                         <Image
                           src={product.image}
@@ -248,9 +248,9 @@ export default function PowerProductsPage() {
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent" />
                         <div className="absolute top-4 left-4 flex gap-2">
-                          <span className="px-2.5 py-1 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/15 text-[10px] font-bold text-white uppercase">
+                          <span className="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-neutral-200 text-[10px] font-bold text-neutral-600 uppercase">
                             {product.category}
                           </span>
                         </div>
@@ -259,7 +259,7 @@ export default function PowerProductsPage() {
                       {/* Content */}
                       <div className="p-6 space-y-3">
                         <Link href={`/power/products/${product.slug}`} className="block">
-                          <h3 className="font-heading font-bold text-base text-white group-hover:text-solar-400 transition-colors line-clamp-2 leading-snug">
+                          <h3 className="font-heading font-bold text-base text-neutral-900 group-hover:text-solar-700 transition-colors line-clamp-2 leading-snug">
                             {product.name}
                           </h3>
                         </Link>
@@ -267,24 +267,24 @@ export default function PowerProductsPage() {
                           {product.tagline}
                         </p>
 
-                        {/* Specs Pill Summary */}
+                        {/* Specs Summary */}
                         <div className="space-y-1.5 pt-2">
                           {product.specs.continuousPower && (
                             <div className="flex justify-between text-xs text-neutral-400">
                               <span>Output:</span>
-                              <span className="text-white font-medium">{product.specs.continuousPower}</span>
+                              <span className="text-neutral-900 font-medium">{product.specs.continuousPower}</span>
                             </div>
                           )}
                           {product.specs.capacity && (
                             <div className="flex justify-between text-xs text-neutral-400">
                               <span>Storage:</span>
-                              <span className="text-solar-400 font-medium">{product.specs.capacity}</span>
+                              <span className="text-solar-700 font-medium">{product.specs.capacity}</span>
                             </div>
                           )}
                           {product.specs.warranty && (
                             <div className="flex justify-between text-xs text-neutral-400">
                               <span>Warranty:</span>
-                              <span className="text-green-400 font-medium">{product.specs.warranty}</span>
+                              <span className="text-solar-600 font-medium">{product.specs.warranty}</span>
                             </div>
                           )}
                         </div>
@@ -293,9 +293,9 @@ export default function PowerProductsPage() {
 
                     {/* Price and Cart Actions */}
                     <div className="p-6 pt-0 space-y-3">
-                      <div className="flex items-baseline justify-between border-t border-white/10 pt-3">
+                      <div className="flex items-baseline justify-between border-t border-neutral-100 pt-3">
                         <span className="text-xs text-neutral-400">Price</span>
-                        <span className="text-xl font-bold text-white">
+                        <span className="text-xl font-bold text-neutral-900">
                           {formatCurrency(product.price)}
                         </span>
                       </div>
@@ -303,14 +303,14 @@ export default function PowerProductsPage() {
                       <div className="grid grid-cols-2 gap-2">
                         <button
                           onClick={() => addItem(product)}
-                          className="py-2.5 rounded-xl bg-gradient-to-r from-primary-600 to-amber-500 text-white font-bold text-xs hover:opacity-95 transition-opacity flex items-center justify-center gap-1.5"
+                          className="py-2.5 rounded-xl bg-solar-600 hover:bg-solar-500 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm shadow-solar-600/20"
                         >
                           <Icon name="warehouse" size={14} />
                           Add to Cart
                         </button>
                         <Link
                           href={`/power/products/${product.slug}`}
-                          className="py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-neutral-200 font-semibold text-xs text-center flex items-center justify-center gap-1"
+                          className="py-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-neutral-600 font-semibold text-xs text-center flex items-center justify-center gap-1"
                         >
                           View Specs
                           <Icon name="arrow-right" size={14} />
