@@ -170,6 +170,30 @@ const iconPaths: Record<string, React.ReactNode> = {
   'check-circle': (
     <><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><polyline points="22 4 12 14.01 9 11.01" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></>
   ),
+  calculator: (
+    <><rect x="4" y="2" width="16" height="20" rx="2" strokeWidth="1.5" /><line x1="8" y1="6" x2="16" y2="6" strokeWidth="1.5" /><line x1="16" y1="14" x2="16" y2="18" strokeWidth="1.5" /><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01" strokeWidth="2" strokeLinecap="round" /></>
+  ),
+  gauge: (
+    <><path d="M12 14l4-4" strokeWidth="1.5" strokeLinecap="round" /><path d="M3.34 19a10 10 0 1 1 17.32 0" strokeWidth="1.5" strokeLinecap="round" /></>
+  ),
+  activity: (
+    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  ),
+  flask: (
+    <path d="M9 3h6M10 9l-5.8 9.7a2 2 0 0 0 1.7 3h12.2a2 2 0 0 0 1.7-3L14 9V3h-4v6z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  ),
+  download: (
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  ),
+  sliders: (
+    <><line x1="4" y1="21" x2="4" y2="14" strokeWidth="1.5" /><line x1="4" y1="10" x2="4" y2="3" strokeWidth="1.5" /><line x1="12" y1="21" x2="12" y2="12" strokeWidth="1.5" /><line x1="12" y1="8" x2="12" y2="3" strokeWidth="1.5" /><line x1="20" y1="21" x2="20" y2="16" strokeWidth="1.5" /><line x1="20" y1="12" x2="20" y2="3" strokeWidth="1.5" /><line x1="1" y1="14" x2="7" y2="14" strokeWidth="1.5" /><line x1="9" y1="8" x2="15" y2="8" strokeWidth="1.5" /><line x1="17" y1="16" x2="23" y2="16" strokeWidth="1.5" /></>
+  ),
+  layers: (
+    <><polygon points="12 2 2 7 12 12 22 7 12 2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><polyline points="2 17 12 22 22 17" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><polyline points="2 12 12 17 22 12" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></>
+  ),
+  'alert-triangle': (
+    <><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><line x1="12" y1="9" x2="12" y2="13" strokeWidth="1.5" /><line x1="12" y1="17" x2="12.01" y2="17" strokeWidth="2" strokeLinecap="round" /></>
+  ),
 };
 
 interface IconProps {

@@ -31,10 +31,10 @@ export function PetroleumFooter() {
               Call Dispatch: {petroleumFooter.contact.phone}
             </a>
             <Link
-              href="/quote"
+              href="/solutions/petroleum/order"
               className="px-4 py-2 rounded-md bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] text-white font-semibold text-xs transition-colors"
             >
-              Request Quote
+              Order Bulk Fuel
             </Link>
           </div>
         </div>

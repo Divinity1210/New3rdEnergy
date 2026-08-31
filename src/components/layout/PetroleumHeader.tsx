@@ -209,11 +209,11 @@ export function PetroleumHeader() {
           {/* Desktop Right Actions (Petroleum Quote) */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="/quote"
-              className="inline-flex items-center gap-2 px-5 py-2 text-[13px] font-semibold text-white bg-red-600 hover:bg-red-500 rounded-md transition-colors tracking-wide"
+              href="/solutions/petroleum/order"
+              className="inline-flex items-center gap-2 px-5 py-2 text-[13px] font-semibold text-white bg-red-600 hover:bg-red-500 rounded-md transition-colors tracking-wide shadow-md shadow-red-600/20"
             >
               <Icon name="fuel" size={14} />
-              Request Fuel Quote
+              Order Bulk Fuel
             </Link>
           </div>
 
@@ -311,11 +311,11 @@ export function PetroleumHeader() {
 
               <div className="mt-8 pt-6 border-t border-white/[0.06] space-y-3">
                 <Link
-                  href="/quote"
+                  href="/solutions/petroleum/order"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center w-full px-6 py-3.5 text-sm font-semibold text-white bg-red-600 hover:bg-red-500 rounded-md transition-colors"
+                  className="flex items-center justify-center w-full px-6 py-3.5 text-sm font-semibold text-white bg-red-600 hover:bg-red-500 rounded-md transition-colors shadow-lg shadow-red-600/25"
                 >
-                  Request Fuel Quote
+                  Order Bulk Fuel
                 </Link>
                 <div className="text-center pt-2">
                   <p className="text-xs text-white/30">24/7 Logistics Dispatch:</p>

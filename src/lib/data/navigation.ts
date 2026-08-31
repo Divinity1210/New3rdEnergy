@@ -55,50 +55,66 @@ export const petroleumNavigation: NavItem[] = [
     href: '/solutions/petroleum',
   },
   {
-    label: 'Fuel Products',
+    label: 'Products',
     href: '/solutions/petroleum#products',
     children: [
       {
         label: 'Diesel (AGO) Supply',
-        href: '/solutions/petroleum?category=diesel',
+        href: '/solutions/petroleum/diesel-supply',
         description: 'High-grade Automotive Gas Oil for industrial plants, commercial generators, and heavy fleet.',
         icon: 'fuel',
       },
       {
         label: 'Premium Petrol (PMS)',
-        href: '/solutions/petroleum?category=petrol',
+        href: '/solutions/petroleum/petrol-supply',
         description: 'Quality-certified motor spirit for corporate transport fleets and retail facilities.',
         icon: 'fuel',
       },
       {
         label: 'Commercial LPG',
-        href: '/solutions/petroleum?category=lpg',
+        href: '/solutions/petroleum/lpg-supply',
         description: 'Liquefied petroleum gas for industrial furnaces, thermal manufacturing, and bulk hospitality.',
         icon: 'flame',
       },
       {
         label: 'Industrial Lubricants',
-        href: '/solutions/petroleum?category=lubricants',
+        href: '/solutions/petroleum/lubricants',
         description: 'Heavy machinery engine oils, turbine lubricants, and hydraulic fluids.',
-        icon: 'droplet',
+        icon: 'droplets',
+      },
+      {
+        label: 'Fuel Storage Tanks',
+        href: '/solutions/petroleum/fuel-storage',
+        description: 'Turnkey storage design, bunding, and automated level telemetry.',
+        icon: 'warehouse',
+      },
+      {
+        label: 'Fleet Logistics',
+        href: '/solutions/petroleum/fuel-logistics',
+        description: 'GPS-tracked tanker haulage with 4-hr emergency response SLAs.',
+        icon: 'truck',
       },
     ],
   },
   {
-    label: 'Storage & Tanks',
-    href: '/solutions/petroleum#storage',
+    label: 'Fuel Calculator',
+    href: '/solutions/petroleum/calculator',
   },
   {
-    label: 'Fleet Logistics',
-    href: '/solutions/petroleum#logistics',
+    label: 'Fleet & Logistics',
+    href: '/solutions/petroleum/logistics',
   },
   {
-    label: 'Industries Served',
-    href: '/industries',
+    label: 'Storage & Engineering',
+    href: '/solutions/petroleum/storage',
   },
   {
-    label: 'Commercial Quote',
-    href: '/quote',
+    label: 'Quality & CoA',
+    href: '/solutions/petroleum/quality',
+  },
+  {
+    label: 'Order Fuel',
+    href: '/solutions/petroleum/order',
   },
 ];
 
@@ -247,20 +263,21 @@ export const petroleumFooter = {
     {
       title: 'Petroleum Products',
       links: [
-        { label: 'Automotive Gas Oil (Diesel)', href: '/solutions/petroleum?category=diesel' },
-        { label: 'Premium Motor Spirit (Petrol)', href: '/solutions/petroleum?category=petrol' },
-        { label: 'Commercial LPG Supply', href: '/solutions/petroleum?category=lpg' },
-        { label: 'Heavy Duty Lubricants', href: '/solutions/petroleum?category=lubricants' },
-        { label: 'Request Fuel Quote', href: '/quote' },
+        { label: 'Automotive Gas Oil (Diesel)', href: '/solutions/petroleum/diesel-supply' },
+        { label: 'Premium Motor Spirit (Petrol)', href: '/solutions/petroleum/petrol-supply' },
+        { label: 'Commercial LPG Supply', href: '/solutions/petroleum/lpg-supply' },
+        { label: 'Heavy Duty Lubricants', href: '/solutions/petroleum/lubricants' },
+        { label: 'Order Bulk Fuel', href: '/solutions/petroleum/order' },
       ],
     },
     {
-      title: 'Infrastructure & Logistics',
+      title: 'Infrastructure & Tools',
       links: [
-        { label: 'Depot Fleet Logistics', href: '/solutions/petroleum#logistics' },
-        { label: 'Smart Storage Tank Installation', href: '/solutions/petroleum#storage' },
-        { label: 'Tank Cleaning & Bunding', href: '/solutions/petroleum#maintenance' },
-        { label: 'Fuel Quality Guarantee', href: '/solutions/petroleum#quality' },
+        { label: 'Fleet & Depot Logistics', href: '/solutions/petroleum/logistics' },
+        { label: 'Storage & Tank Engineering', href: '/solutions/petroleum/storage' },
+        { label: 'Quality Guarantee & CoA', href: '/solutions/petroleum/quality' },
+        { label: 'Fuel & Tanker Calculator', href: '/solutions/petroleum/calculator' },
+        { label: 'Dispatch & Contact Desk', href: '/solutions/petroleum/contact' },
       ],
     },
     {
