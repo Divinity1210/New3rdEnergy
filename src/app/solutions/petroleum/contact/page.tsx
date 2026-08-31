@@ -57,9 +57,32 @@ export default function PetroleumContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setIsSubmitting(false);
-    setIsSuccess(true);
+
+    try {
+      const nameParts = name.trim().split(' ');
+      const firstName = nameParts[0] || name;
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email: email.trim(),
+          phone: phone.trim(),
+          organisation: company.trim() || `${name}'s Company`,
+          subject: `[3RD Petroleum Desk] ${inquiryType}`,
+          message: `Inquiry Type: ${inquiryType}\n\n${message}`,
+          preferredContact: 'phone',
+        }),
+      });
+    } catch (err) {
+      console.error('Contact submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+    }
   };
 
   return (

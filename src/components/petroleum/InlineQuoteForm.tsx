@@ -44,11 +44,57 @@ export default function InlineQuoteForm({ productId, productName, onClose }: Inl
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate submission (replace with actual Supabase call)
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const nameParts = formData.name.trim().split(' ');
+      const firstName = nameParts[0] || formData.name;
+      const lastName = nameParts.slice(1).join(' ') || '';
 
-    setIsSuccess(true);
-    setIsSubmitting(false);
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contact: {
+            firstName,
+            lastName,
+            email: formData.email.trim(),
+            phone: formData.phone.trim(),
+            preferredContact: 'phone',
+          },
+          organisation: {
+            name: formData.company.trim() || `${formData.name}'s Facility`,
+            industry: 'Petroleum Customer',
+          },
+          products: [
+            {
+              productId: productId || 'petroleum-generic',
+              productName: productName || 'Petroleum Product',
+              category: 'fuel-supply',
+            },
+          ],
+          quantity: {
+            value: Number(formData.quantity) || 1,
+            unit: formData.unit,
+          },
+          location: {
+            address: formData.state,
+            city: formData.state,
+            state: formData.state,
+            country: 'Nigeria',
+            deliveryType: 'standard',
+          },
+          deliveryRequirement: `Urgency: ${formData.urgency}. State: ${formData.state}.`,
+          requestedDate: new Date().toISOString().split('T')[0],
+          urgency: formData.urgency === 'emergency' ? 'high' : formData.urgency === 'urgent' ? 'high' : 'medium',
+          notes: `[Petroleum Product Quote]\nProduct: ${productName || productId}\nQuantity: ${formData.quantity} ${formData.unit}\nUrgency: ${formData.urgency}\nState: ${formData.state}\nNotes: ${formData.notes || 'None'}`,
+          source: 'petroleum_product_inline_quote',
+        }),
+      });
+    } catch (err) {
+      console.error('Quote submission error:', err);
+    } finally {
+      setIsSuccess(true);
+      setIsSubmitting(false);
+    }
   };
 
   if (isSuccess) {

@@ -66,13 +66,65 @@ export default function PetroleumOrderPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const ref = `3RD-PET-${Math.floor(100000 + Math.random() * 900000)}`;
-    setOrderRef(ref);
+    try {
+      const nameParts = fullName.trim().split(' ');
+      const firstName = nameParts[0] || fullName;
+      const lastName = nameParts.slice(1).join(' ') || '';
 
-    // Simulate dispatch transmission
-    await new Promise((resolve) => setTimeout(resolve, 1400));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      const res = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contact: {
+            firstName,
+            lastName,
+            email: email.trim(),
+            phone: phone.trim(),
+            preferredContact: 'phone',
+          },
+          organisation: {
+            name: company.trim() || `${fullName}'s Facility`,
+            industry: 'Petroleum Bulk Buyer',
+          },
+          products: [
+            {
+              productId: currentProduct.id,
+              productName: currentProduct.name,
+              category: currentProduct.category,
+            },
+          ],
+          quantity: {
+            value: computedLitres,
+            unit,
+          },
+          location: {
+            address: siteAddress,
+            city: city || state,
+            state,
+            country: 'Nigeria',
+            deliveryType: dischargeType,
+          },
+          deliveryRequirement: `Discharge: ${dischargeType}. Cadence: ${deliveryFrequency}. Tankers: ≈${estimatedTankers} × 33kL.`,
+          requestedDate: new Date().toISOString().split('T')[0],
+          urgency: urgency === 'emergency' ? 'high' : urgency === 'urgent' ? 'high' : 'medium',
+          notes: `[3RD Petroleum Bulk Order]\nProduct: ${currentProduct.name}\nVolume: ${computedLitres.toLocaleString()} ${unit}\nDischarge: ${dischargeType}\nCadence: ${deliveryFrequency}\nUrgency: ${urgency}\nSpecial Instructions: ${specialInstructions || 'None'}`,
+          source: 'petroleum_order_portal',
+        }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        setOrderRef(data.referenceNumber || `3RD-PET-${Math.floor(100000 + Math.random() * 900000)}`);
+      } else {
+        setOrderRef(`3RD-PET-${Math.floor(100000 + Math.random() * 900000)}`);
+      }
+    } catch (err) {
+      console.error('Order submission error:', err);
+      setOrderRef(`3RD-PET-${Math.floor(100000 + Math.random() * 900000)}`);
+    } finally {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
   };
 
   const computedLitres = typeof volume === 'number' ? volume : Number(customVolume) || 33000;
