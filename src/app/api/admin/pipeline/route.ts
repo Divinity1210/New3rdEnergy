@@ -14,6 +14,7 @@ import {
   STAGE_LABELS,
   STAGE_COLORS,
 } from '@/lib/services/pipeline-service';
+import { notificationAdapter } from '@/lib/adapters/notification-adapter';
 import { PipelineStage, Session } from '@/lib/types';
 
 async function getHandler(request: NextRequest, { session }: { session: Session }) {
@@ -94,6 +95,23 @@ async function patchHandler(request: NextRequest, { session }: { session: Sessio
       ipAddress: getClientIP(request),
       userAgent: getUserAgent(request),
     });
+
+    // Notify info@3rdenergyservices.com on pipeline update
+    try {
+      const opps = await getPipelineOpportunities('all');
+      const updatedOpp = opps.find((o) => o.id === opportunityId);
+      if (updatedOpp) {
+        notificationAdapter.sendStageChangeNotification({
+          referenceNumber: updatedOpp.referenceNumber,
+          company: updatedOpp.company,
+          contactName: updatedOpp.contactName,
+          stage: STAGE_LABELS[newStage as PipelineStage] || newStage,
+          estimatedValue: updatedOpp.estimatedValue,
+        }).catch(err => console.error('[Pipeline Stage Email Error]', err));
+      }
+    } catch (notifErr) {
+      console.warn('[Stage Notification Warn]', notifErr);
+    }
 
     return NextResponse.json({
       success: true,
