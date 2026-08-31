@@ -290,8 +290,8 @@ export default function HomePage() {
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <div className="flex items-center gap-3 mb-3">
                       <p className="label-text text-solar-400">Power & Solar</p>
-                      <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-solar-900/40 text-solar-400 rounded border border-solar-500/20">
-                        Phase 2
+                      <span className="px-2 py-0.5 text-[10px] font-semibold bg-emerald-950/60 text-emerald-400 rounded border border-emerald-500/30">
+                        Renewable Tech
                       </span>
                     </div>
                     <h3 className="text-2xl lg:text-3xl font-heading font-bold text-white mb-3 tracking-tight">

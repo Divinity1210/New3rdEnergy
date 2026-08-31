@@ -167,25 +167,32 @@ export default function PetroleumPage() {
 
               {/* CTAs */}
               <div
-                className={`flex flex-wrap gap-4 transition-all duration-700 delay-500 ${
+                className={`flex flex-wrap items-center gap-3.5 transition-all duration-700 delay-500 ${
                   heroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
               >
                 <Link
-                  href="#products"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold text-white bg-red-600 hover:bg-red-500 rounded-xl transition-all duration-300 shadow-2xl shadow-red-600/25 hover:shadow-red-500/40 hover:-translate-y-0.5"
+                  href="/solutions/petroleum/order"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold text-white bg-red-600 hover:bg-red-500 rounded-xl transition-all duration-300 shadow-2xl shadow-red-600/30 hover:shadow-red-500/50 hover:-translate-y-0.5"
                 >
                   <Icon name="fuel" size={16} />
-                  Explore Products
+                  Order Bulk Fuel (4-Hr SLA)
+                </Link>
+                <Link
+                  href="/solutions/petroleum/calculator"
+                  className="inline-flex items-center gap-2.5 px-6 py-4 text-sm font-semibold text-white/80 bg-white/[0.06] border border-white/[0.12] hover:bg-white/[0.12] hover:text-white rounded-xl transition-all duration-300 backdrop-blur-sm"
+                >
+                  <Icon name="calculator" size={16} />
+                  Fuel & Tanker Calculator
                 </Link>
                 <a
-                  href={getWhatsAppUrl('Hello 3rd Energy, I need petroleum supply services.')}
+                  href={getWhatsAppUrl('Hello 3RD Petroleum Dispatch, I need bulk fuel procurement.')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-semibold text-white/60 bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:text-white hover:border-white/[0.15] rounded-xl transition-all duration-300 backdrop-blur-sm"
+                  className="inline-flex items-center gap-2 px-5 py-4 text-sm font-semibold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 hover:bg-emerald-900/60 rounded-xl transition-all duration-300 backdrop-blur-sm"
                 >
                   <Icon name="whatsapp" size={16} />
-                  Call Dispatch
+                  24/7 Hotline
                 </a>
               </div>
             </div>

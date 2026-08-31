@@ -58,7 +58,16 @@ export async function POST(request: NextRequest) {
       preferredContact: body.preferredContact || 'email',
     });
 
-    // Notify
+    // Persist to store for admin pipeline
+    try {
+      const { Store } = await import('@/lib/services/store-service');
+      const leadsStore = new Store<any>('leads');
+      await leadsStore.create(lead as any);
+    } catch (storeErr) {
+      console.warn('[Contact API] Store persistence warning:', storeErr);
+    }
+
+    // Notify info@3rdenergyservices.com
     notificationAdapter.sendLeadNotification(lead).catch(console.error);
 
     console.log(`[Contact API] Enquiry received: ${lead.referenceNumber} — ${lead.contact.email}`);
