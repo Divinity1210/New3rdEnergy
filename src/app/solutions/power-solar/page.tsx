@@ -58,27 +58,27 @@ export default function PowerSolarPage() {
                 Experience the complete clean energy lifecycle. Discover Tier-1 solar equipment, size your load with our AI planner, customize turnkey packages, and book certified installation.
               </p>
 
-              <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Link
                   href="/power/planner"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-[#0a0a0a] bg-solar-500 hover:bg-solar-400 rounded-md transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-[#0a0a0a] bg-solar-400 hover:bg-solar-300 rounded-xl transition-all shadow-lg shadow-solar-500/20"
                 >
                   <Icon name="zap" size={16} />
-                  Find My Power Solution
+                  Find My Solar Solution
                 </Link>
                 <Link
                   href="/power/products"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-white/60 border border-white/10 hover:border-white/20 hover:text-white rounded-md transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold text-white/90 bg-white/[0.06] border border-white/[0.12] hover:bg-white/[0.12] hover:text-white rounded-xl transition-all backdrop-blur-sm"
                 >
-                  <Icon name="warehouse" size={16} />
-                  Shop Products
+                  <Icon name="sparkles" size={16} className="text-solar-400" />
+                  Portable Power & Inverters
                 </Link>
                 <Link
-                  href="/power/builder"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-solar-400 border border-solar-500/20 hover:border-solar-500/40 hover:text-solar-300 rounded-md transition-colors"
+                  href="/power/calculator"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 text-sm font-semibold text-solar-400 border border-solar-500/30 hover:bg-solar-950/40 rounded-xl transition-all"
                 >
-                  <Icon name="settings" size={16} />
-                  Design My System
+                  <Icon name="calculator" size={16} />
+                  Sizing Calculator
                 </Link>
               </div>
 

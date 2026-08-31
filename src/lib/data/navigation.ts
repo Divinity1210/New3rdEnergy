@@ -149,6 +149,13 @@ export const powerNavigation: NavItem[] = [
         icon: 'battery',
       },
       {
+        label: 'Portable Power & Power Banks',
+        href: '/power/products?category=power-stations',
+        description: 'Fast-charge laptop power banks, 600W–2.4kWh solar generators & mobile kits.',
+        icon: 'sparkles',
+        badge: 'New',
+      },
+      {
         label: 'Turnkey Packages',
         href: '/solutions/power-solar#packages',
         description: 'Complete bundled packages engineered with solar PV arrays and certified installation.',

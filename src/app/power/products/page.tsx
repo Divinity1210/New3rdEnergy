@@ -19,7 +19,7 @@ export default function PowerProductsPage() {
     { id: 'inverters', label: 'Hybrid Inverters', icon: 'zap' },
     { id: 'batteries', label: 'LiFePO4 Storage', icon: 'warehouse' },
     { id: 'solar-panels', label: 'Solar PV Panels', icon: 'sun' },
-    { id: 'power-stations', label: 'Power Stations', icon: 'sparkles' },
+    { id: 'power-stations', label: 'Portable Power & Banks', icon: 'sparkles' },
     { id: 'accessories', label: 'Protection & EMS', icon: 'settings' },
     { id: 'packages', label: 'Turnkey Packages', icon: 'shield' },
   ];
