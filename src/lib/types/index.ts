@@ -553,6 +553,42 @@ export type PipelineStage =
   | 'LOST'
   | 'CUSTOMER';
 
+export const PIPELINE_STAGES: PipelineStage[] = [
+  'NEW_LEAD',
+  'QUALIFIED',
+  'DISCOVERY',
+  'QUOTE_REQUESTED',
+  'QUOTE_SENT',
+  'NEGOTIATION',
+  'WON',
+  'LOST',
+  'CUSTOMER',
+];
+
+export const STAGE_LABELS: Record<PipelineStage, string> = {
+  NEW_LEAD: 'New Inbound',
+  QUALIFIED: 'Qualified',
+  DISCOVERY: 'Discovery',
+  QUOTE_REQUESTED: 'Quote Requested',
+  QUOTE_SENT: 'Quote Sent',
+  NEGOTIATION: 'Negotiation',
+  WON: 'Won / Dispatched',
+  LOST: 'Lost',
+  CUSTOMER: 'Active Customer',
+};
+
+export const STAGE_COLORS: Record<PipelineStage, string> = {
+  NEW_LEAD: '#3b82f6',
+  QUALIFIED: '#8b5cf6',
+  DISCOVERY: '#6366f1',
+  QUOTE_REQUESTED: '#f59e0b',
+  QUOTE_SENT: '#f97316',
+  NEGOTIATION: '#ef4444',
+  WON: '#10b981',
+  LOST: '#6b7280',
+  CUSTOMER: '#059669',
+};
+
 export interface PipelineStageHistory {
   stage: PipelineStage;
   enteredAt: string;

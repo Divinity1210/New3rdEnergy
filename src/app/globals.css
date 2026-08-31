@@ -2082,3 +2082,19 @@ body {
   .portal-telemetry-stats { flex-wrap: wrap; gap: 16px; }
   .portal-grid-3 { grid-template-columns: 1fr; }
 }
+
+/* Custom Scrollbar for Admin Kanban */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
