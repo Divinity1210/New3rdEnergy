@@ -140,15 +140,27 @@ function PowerProductsContent() {
               {filteredPackages.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className="bg-white border border-slate-200 rounded-3xl p-6 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-950/5 transition-all flex flex-col justify-between"
+                  className="bg-white border border-slate-200 rounded-3xl p-6 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-950/5 transition-all flex flex-col justify-between group"
                 >
                   <div className="space-y-4">
+                    <div className="relative h-44 w-full rounded-2xl overflow-hidden bg-slate-100">
+                      <Image
+                        src={pkg.image || '/images/products/package-recommended.jpg'}
+                        alt={pkg.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-slate-900/80 text-white text-[10px] font-bold font-mono backdrop-blur-sm">
+                        {pkg.ratingKva}kVA / {pkg.batteryKwh}kWh
+                      </span>
+                    </div>
+
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 uppercase tracking-wider">
-                        {pkg.ratingKva}kVA System
+                        {pkg.tier === 'recommended' ? 'Executive Tier' : pkg.tier === 'commercial' ? 'Commercial Tier' : 'Essential Tier'}
                       </span>
                       <span className="text-xs font-bold text-slate-400">
-                        {pkg.batteryKwh}kWh Storage
+                        {pkg.batteryKwh}kWh LiFePO4
                       </span>
                     </div>
 
