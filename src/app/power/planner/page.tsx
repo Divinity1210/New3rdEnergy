@@ -75,7 +75,7 @@ export default function PowerPlannerPage() {
     setError(null);
 
     try {
-      const res = await fetch('/api/power/size', {
+      const res = await fetch('/api/power/planner', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -100,6 +100,14 @@ export default function PowerPlannerPage() {
       setIsLoading(false);
     }
   };
+
+  // Calculate estimated total package cost
+  const matchedInverter = estimate?.matchedProducts?.inverter;
+  const matchedBattery = estimate?.matchedProducts?.battery;
+  const matchedSolar = estimate?.matchedProducts?.solarPanel;
+  const matchedPackage = powerPackages.find((pkg) => pkg.slug === estimate?.matchedPackageSlug) || powerPackages[1];
+
+  const totalEstimatedCost = matchedPackage?.price || 4350000;
 
   return (
     <div className="bg-[#f8fafc] text-slate-900 min-h-screen pt-32 pb-24 lg:pt-40">
@@ -209,7 +217,7 @@ export default function PowerPlannerPage() {
                         <button
                           onClick={() => updateQuantity(appliance.id, -1)}
                           disabled={qty === 0}
-                          className="px-3 py-1.5 text-xs font-bold text-slate-500 hover:text-slate-900 disabled:opacity-30 disabled:cursor-not-allowed"
+                          className="px-3 py-1.5 text-xs font-bold text-slate-500 hover:text-slate-900 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
                           aria-label={`Decrease ${appliance.name}`}
                         >
                           -
@@ -219,7 +227,7 @@ export default function PowerPlannerPage() {
                         </span>
                         <button
                           onClick={() => updateQuantity(appliance.id, 1)}
-                          className="px-3 py-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 hover:bg-emerald-100 rounded-r-xl"
+                          className="px-3 py-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 hover:bg-emerald-100 rounded-r-xl cursor-pointer"
                           aria-label={`Increase ${appliance.name}`}
                         >
                           +
@@ -308,7 +316,7 @@ export default function PowerPlannerPage() {
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors"
+                className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
               >
                 ← Back to Appliances
               </button>
@@ -337,20 +345,24 @@ export default function PowerPlannerPage() {
         {/* ===== STEP 3: RECOMMENDATION & RESULTS ===== */}
         {step === 3 && estimate && (
           <div className="space-y-8 animate-fade-in">
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-lg space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-8">
+              {/* Header result row */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
                 <div>
-                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 uppercase tracking-wider">
+                  <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 uppercase tracking-wider font-mono">
                     Engineered System Recommendation
                   </span>
-                  <h2 className="font-heading font-extrabold text-2xl text-slate-950 mt-1.5">
-                    Recommended Sizing: {estimate.recommendedKva}kVA / {estimate.recommendedBatteryKwh}kWh
+                  <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-950 mt-2">
+                    Recommended Sizing: {estimate.recommendedInverterKva}kVA Inverter / {estimate.recommendedBatteryKwh}kWh LiFePO4
                   </h2>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Matched system: <strong>{matchedPackage?.name || 'Executive Solar Hybrid'}</strong>
+                  </p>
                 </div>
-                <div className="text-right">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase font-mono block">Estimated Investment</span>
-                  <span className="text-2xl font-heading font-extrabold text-slate-950">
-                    {formatCurrency(estimate.estimatedCost)}
+                <div className="text-right shrink-0">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase font-mono block">Estimated Turnkey Package</span>
+                  <span className="text-3xl font-heading font-extrabold text-slate-950 font-mono">
+                    {formatCurrency(totalEstimatedCost)}
                   </span>
                 </div>
               </div>
@@ -358,35 +370,94 @@ export default function PowerPlannerPage() {
               {/* Breakdown metrics */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase block">Running Load</span>
-                  <span className="text-lg font-bold text-slate-950 font-mono mt-0.5 block">{estimate.totalRunningWatts} W</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase block font-mono">Running Load</span>
+                  <span className="text-xl font-bold text-slate-950 font-mono mt-0.5 block">{estimate.totalRunningWatts} W</span>
+                  <span className="text-[10px] text-slate-400 block mt-0.5">Surge: {estimate.totalSurgeWatts}W</span>
                 </div>
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase block">Daily Energy</span>
-                  <span className="text-lg font-bold text-slate-950 font-mono mt-0.5 block">{estimate.totalDailyKwh} kWh</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase block font-mono">Daily Energy</span>
+                  <span className="text-xl font-bold text-slate-950 font-mono mt-0.5 block">{estimate.dailyEnergyKwh} kWh</span>
+                  <span className="text-[10px] text-slate-400 block mt-0.5">Per 24h period</span>
                 </div>
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase block">Solar PV Size</span>
-                  <span className="text-lg font-bold text-slate-950 font-mono mt-0.5 block">{estimate.recommendedSolarKwp} kWp</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase block font-mono">Solar PV Array</span>
+                  <span className="text-xl font-bold text-slate-950 font-mono mt-0.5 block">{estimate.recommendedSolarKwp} kWp</span>
+                  <span className="text-[10px] text-slate-400 block mt-0.5">Tier-1 Mono PV</span>
                 </div>
                 <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-100">
-                  <span className="text-[10px] font-bold text-emerald-800 uppercase block">Autonomy</span>
-                  <span className="text-lg font-bold text-emerald-900 font-mono mt-0.5 block">~{estimate.recommendedRuntimeHours} Hours</span>
+                  <span className="text-[10px] font-bold text-emerald-800 uppercase block font-mono">Target Autonomy</span>
+                  <span className="text-xl font-bold text-emerald-900 font-mono mt-0.5 block">~{estimate.autonomyHours} Hours</span>
+                  <span className="text-[10px] text-emerald-700 block mt-0.5">LiFePO4 Storage</span>
                 </div>
               </div>
 
+              {/* Matched Turnkey Package Card */}
+              {matchedPackage && (
+                <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="relative w-24 h-24 rounded-xl overflow-hidden bg-slate-200 shrink-0">
+                      <Image
+                        src={matchedPackage.image || '/images/products/package-recommended.jpg'}
+                        alt={matchedPackage.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 uppercase font-mono">
+                        Turnkey Package Match
+                      </span>
+                      <h3 className="font-heading font-bold text-base text-slate-950 mt-1">
+                        {matchedPackage.name}
+                      </h3>
+                      <p className="text-xs text-slate-500 mt-0.5 line-clamp-1">
+                        {matchedPackage.tagline}
+                      </p>
+                      <div className="text-sm font-extrabold text-emerald-700 font-mono mt-1">
+                        {formatCurrency(matchedPackage.price)} (Includes Installation & 5-Yr Warranty)
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => addPackage(matchedPackage)}
+                    className="w-full md:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 cursor-pointer shrink-0"
+                  >
+                    <Icon name="shopping-cart" size={15} />
+                    Add Turnkey Package to Cart
+                  </button>
+                </div>
+              )}
+
+              {/* Engineering Assumptions List */}
+              <div className="space-y-2 text-xs text-slate-600 bg-white p-5 rounded-2xl border border-slate-100">
+                <span className="text-[11px] font-bold text-slate-900 block mb-1">Engineering Sizing Assumptions:</span>
+                {estimate.assumptions.map((ass, i) => (
+                  <p key={i} className="flex items-start gap-2">
+                    <span className="text-emerald-600 font-bold">•</span>
+                    <span>{ass}</span>
+                  </p>
+                ))}
+              </div>
+
               {/* Actions */}
-              <div className="pt-4 flex flex-col sm:flex-row gap-3">
+              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={() => setStep(1)}
+                  className="py-3.5 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors text-center cursor-pointer"
+                >
+                  ← Adjust Appliance Loads
+                </button>
                 <Link
                   href="/power/products"
-                  className="flex-1 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors text-center shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2"
+                  className="flex-1 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-colors text-center flex items-center justify-center gap-2 shadow-sm"
                 >
-                  <Icon name="shopping-cart" size={14} />
-                  Browse Matched Products in Store
+                  <Icon name="grid" size={14} />
+                  Explore Catalog Products
                 </Link>
                 <Link
                   href="/power/builder"
-                  className="py-4 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors text-center"
+                  className="py-3.5 px-6 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs border border-emerald-200 transition-colors text-center"
                 >
                   Fine-Tune in 3D Builder
                 </Link>
