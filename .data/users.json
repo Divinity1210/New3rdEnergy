@@ -1,1 +1,79 @@
-[]
+[
+  {
+    "id": "user_admin_root",
+    "email": "admin@3rdenergy.com",
+    "passwordHash": "56b8148f-12c2-4a5d-b3ed-a8a9a39795d8:b073eb215301634435bd669c303df6104394344923602f99383b68e1b6869fcd",
+    "firstName": "Admin",
+    "lastName": "User",
+    "role": "ADMIN",
+    "isActive": true,
+    "createdAt": "2026-09-01T08:06:57.739Z",
+    "updatedAt": "2026-09-01T08:06:57.739Z"
+  },
+  {
+    "id": "user_admin_root",
+    "email": "admin@3rdenergy.com",
+    "passwordHash": "7048713c-4f36-447d-9c0e-e989759c8f5f:ca13a326ec9fca66cc5e200923ab07eab195b066e80102a391a365bf1a4357bf",
+    "firstName": "Admin",
+    "lastName": "User",
+    "role": "ADMIN",
+    "isActive": true,
+    "createdAt": "2026-09-01T08:06:57.739Z",
+    "updatedAt": "2026-09-01T08:06:57.739Z"
+  },
+  {
+    "id": "user_admin_root",
+    "email": "admin@3rdenergy.com",
+    "passwordHash": "410409a5-cdc1-4e52-bcc3-d473574623bc:61a4b07aafd9ef456bd28e21d517aabf93c389cfa64989955d22c776f14b55a9",
+    "firstName": "Admin",
+    "lastName": "User",
+    "role": "ADMIN",
+    "isActive": true,
+    "createdAt": "2026-09-01T08:06:57.733Z",
+    "updatedAt": "2026-09-01T08:06:57.733Z"
+  },
+  {
+    "id": "user_admin_root",
+    "email": "admin@3rdenergy.com",
+    "passwordHash": "72f33cf2-aa4d-4b23-86a9-92ae1b1d93a2:523c725dcc1edff4341c83d736294e4dc3a7b95be8493fdcac17d41ae4a8cd76",
+    "firstName": "Admin",
+    "lastName": "User",
+    "role": "ADMIN",
+    "isActive": true,
+    "createdAt": "2026-09-01T08:06:57.735Z",
+    "updatedAt": "2026-09-01T08:06:57.735Z"
+  },
+  {
+    "id": "user_admin_root",
+    "email": "admin@3rdenergy.com",
+    "passwordHash": "5d4fdac7-bed8-4fca-a25b-938d87890778:ee1c80f992a1724ef0981ef7575578ebffe726eafa4625eb7d07290cce9c3a12",
+    "firstName": "Admin",
+    "lastName": "User",
+    "role": "ADMIN",
+    "isActive": true,
+    "createdAt": "2026-09-01T08:06:57.766Z",
+    "updatedAt": "2026-09-01T08:06:57.766Z"
+  },
+  {
+    "id": "user_admin_root",
+    "email": "admin@3rdenergy.com",
+    "passwordHash": "972ae9c1-17e6-4069-a602-84a4f12fa854:f41bb4492921c427e944c29091a37f561d6a853e4e49494f8f69bddf5507b0f4",
+    "firstName": "Admin",
+    "lastName": "User",
+    "role": "ADMIN",
+    "isActive": true,
+    "createdAt": "2026-09-01T08:06:57.735Z",
+    "updatedAt": "2026-09-01T08:06:57.735Z"
+  },
+  {
+    "id": "user_admin_root",
+    "email": "admin@3rdenergy.com",
+    "passwordHash": "9b24615b-1552-4114-b82d-b392da13b430:b1612875516c974d9e5849fe01e42efdb919adcd2030105e6e49c0d183f11e3a",
+    "firstName": "Admin",
+    "lastName": "User",
+    "role": "ADMIN",
+    "isActive": true,
+    "createdAt": "2026-09-01T08:06:57.910Z",
+    "updatedAt": "2026-09-01T08:06:57.910Z"
+  }
+]

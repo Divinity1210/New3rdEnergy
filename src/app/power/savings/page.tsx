@@ -41,226 +41,160 @@ export default function PowerSavingsSimulatorPage() {
   const paybackMonths = Number(((estimatedSystemCost / projectedAnnualSavings) * 12).toFixed(1));
 
   return (
-    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-[#f8fafc] text-slate-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-6xl">
         {/* Header */}
         <div className="text-center space-y-3 mb-12 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
-            <Icon name="chart" size={14} />
-            Financial & Fuel ROI Model
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold shadow-sm">
+            <Icon name="trending-up" size={14} className="text-emerald-600" />
+            3RD ENERGY SERVICES LTD · ROI & SAVINGS SIMULATOR
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
-            Power Savings <span className="text-solar-400">Simulator.</span>
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-slate-950 tracking-tight">
+            Diesel vs Solar <span className="text-emerald-700">Savings Model.</span>
           </h1>
-          <p className="text-sm text-neutral-400">
-            Compare diesel generator operational burn vs solar-hybrid systems over 1, 5, and 10 years with transparent, verifiable engineering assumptions.
+          <p className="text-sm sm:text-base text-slate-600">
+            Compare diesel generator operational burn vs solar-hybrid systems over 1, 5, and 10 years with transparent engineering assumptions.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8 items-start mb-16">
           {/* Left Column: Interactive Inputs (5 cols) */}
-          <div className="lg:col-span-5 p-7 rounded-lg bg-white border border-neutral-200 space-y-6">
-            <div className="border-b border-neutral-200 pb-3">
-              <h2 className="font-heading font-bold text-lg text-neutral-900">
-                1. Your Current Energy Situation
+          <div className="lg:col-span-5 p-7 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-6">
+            <div className="border-b border-slate-100 pb-3">
+              <h2 className="font-heading font-bold text-lg text-slate-950">
+                1. Your Current Generator Profile
               </h2>
-              <p className="text-xs text-neutral-400 mt-0.5">
-                Adjust values to match your generator and billing profile.
+              <p className="text-xs text-slate-500 mt-0.5">
+                Adjust values to match your generator size and fuel burn.
               </p>
             </div>
 
             {/* Generator Size Slider */}
             <div className="space-y-2">
               <div className="flex justify-between text-xs">
-                <label className="font-semibold text-neutral-300">Generator Rating (kVA)</label>
-                <span className="font-bold text-solar-400">{generatorKva} kVA</span>
+                <span className="text-slate-600 font-medium">Generator Rating:</span>
+                <span className="font-bold text-slate-900 font-mono">{generatorKva} kVA</span>
               </div>
               <input
                 type="range"
-                min={3.5}
+                min={3}
                 max={50}
-                step={0.5}
                 value={generatorKva}
                 onChange={(e) => setGeneratorKva(Number(e.target.value))}
-                className="w-full h-2 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
               />
-              <div className="flex justify-between text-[10px] text-neutral-500">
-                <span>3.5kVA (Home)</span>
-                <span>10kVA (Office)</span>
-                <span>50kVA (Industrial)</span>
-              </div>
             </div>
 
-            {/* Daily Hours Slider */}
+            {/* Daily Running Hours */}
             <div className="space-y-2">
               <div className="flex justify-between text-xs">
-                <label className="font-semibold text-neutral-300">Daily Generator Runtime</label>
-                <span className="font-bold text-solar-400">{dailyHours} Hours / Day</span>
+                <span className="text-slate-600 font-medium">Daily Generator Run Time:</span>
+                <span className="font-bold text-slate-900 font-mono">{dailyHours} Hours / Day</span>
               </div>
               <input
                 type="range"
                 min={2}
                 max={24}
-                step={1}
                 value={dailyHours}
                 onChange={(e) => setDailyHours(Number(e.target.value))}
-                className="w-full h-2 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
               />
-              <div className="flex justify-between text-[10px] text-neutral-500">
-                <span>2h (Peak Only)</span>
-                <span>8h (Workday)</span>
-                <span>24h (Off-Grid)</span>
-              </div>
             </div>
 
-            {/* Fuel Price Input */}
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-neutral-300 block">
-                Fuel Tariff (₦ / Litre)
-              </label>
+            {/* Fuel Price */}
+            <div className="space-y-2">
+              <div className="flex justify-between text-xs">
+                <span className="text-slate-600 font-medium">Diesel / Petrol Cost (₦/Litre):</span>
+                <span className="font-bold text-slate-900 font-mono">₦{fuelPrice} / L</span>
+              </div>
               <input
                 type="number"
                 value={fuelPrice}
                 onChange={(e) => setFuelPrice(Number(e.target.value))}
-                className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
+                className="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-mono focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
-            {/* Monthly Grid Bill */}
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-neutral-300 block">
-                Monthly Utility Grid Bill (₦ / Month)
-              </label>
-              <input
-                type="number"
-                value={monthlyGridBill}
-                onChange={(e) => setMonthlyGridBill(Number(e.target.value))}
-                className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
-              />
-            </div>
-
-            {/* Target Solar Offset */}
-            <div className="space-y-2 pt-2 border-t border-neutral-200">
-              <div className="flex justify-between text-xs">
-                <label className="font-semibold text-neutral-300">Target Solar Offset</label>
-                <span className="font-bold text-green-400">{targetOffsetPercent}% Offset</span>
+            {/* Summary Spend Box */}
+            <div className="p-4 rounded-2xl bg-red-50/80 border border-red-200 space-y-2 text-xs">
+              <div className="flex justify-between text-red-950">
+                <span>Monthly Fuel Burn:</span>
+                <span className="font-bold font-mono">{formatCurrency(monthlyFuelSpend)}</span>
               </div>
-              <input
-                type="range"
-                min={50}
-                max={100}
-                step={5}
-                value={targetOffsetPercent}
-                onChange={(e) => setTargetOffsetPercent(Number(e.target.value))}
-                className="w-full h-2 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-green-400"
-              />
+              <div className="flex justify-between text-red-950">
+                <span>Maintenance & Filters (12%):</span>
+                <span className="font-bold font-mono">{formatCurrency(monthlyMaintenanceSpend)}</span>
+              </div>
+              <div className="flex justify-between text-red-950 font-bold pt-2 border-t border-red-200">
+                <span>Total Monthly Burn:</span>
+                <span className="font-mono">{formatCurrency(totalMonthlyGeneratorSpend)}</span>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Dynamic Financial Forecast (7 cols) */}
+          {/* Right Column: Savings Projections & Payback (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Main Savings Highlights */}
-            <div className="p-8 rounded-lg bg-white border border-neutral-300 backdrop-blur-md shadow-xl relative overflow-hidden space-y-6">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-green-500/10 rounded-full blur-3xl" />
-
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-neutral-200 pb-4 gap-2">
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-green-400">
-                    Projected Return on Investment
-                  </span>
-                  <h3 className="font-heading font-extrabold text-2xl text-white mt-1">
-                    Annual Net Savings
-                  </h3>
-                </div>
-                <div className="text-3xl sm:text-4xl font-extrabold text-solar-400">
-                  {formatCurrency(projectedAnnualSavings)}
-                  <span className="text-xs text-neutral-400 font-normal block text-right">/ year</span>
-                </div>
+            <div className="p-7 rounded-3xl bg-white border border-slate-200 shadow-lg space-y-6">
+              <div className="border-b border-slate-100 pb-3">
+                <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 uppercase tracking-wider">
+                  Solar Hybrid Economics
+                </span>
+                <h2 className="font-heading font-extrabold text-2xl text-slate-950 mt-2">
+                  Projected Financial ROI & Savings
+                </h2>
               </div>
 
-              {/* Multi-Year Projections */}
-              <div className="grid grid-cols-3 gap-3 text-center">
-                <div className="p-4 rounded-lg bg-white/[0.03] border border-white/5">
-                  <span className="text-[11px] text-neutral-400 block">1-Year Savings</span>
-                  <span className="text-base sm:text-lg font-bold text-white mt-1 block">
+              {/* Big Savings Metrics */}
+              <div className="grid sm:grid-cols-3 gap-4">
+                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200">
+                  <span className="text-[10px] font-bold text-emerald-800 uppercase block">1-Year Savings</span>
+                  <span className="text-xl font-heading font-extrabold text-emerald-900 mt-1 block">
                     {formatCurrency(projectedAnnualSavings)}
                   </span>
                 </div>
-                <div className="p-4 rounded-lg bg-white/[0.03] border border-white/5">
-                  <span className="text-[11px] text-neutral-400 block">5-Year Savings</span>
-                  <span className="text-base sm:text-lg font-bold text-solar-400 mt-1 block">
+                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200">
+                  <span className="text-[10px] font-bold text-emerald-800 uppercase block">5-Year Cumulative</span>
+                  <span className="text-xl font-heading font-extrabold text-emerald-900 mt-1 block">
                     {formatCurrency(fiveYearSavings)}
                   </span>
                 </div>
-                <div className="p-4 rounded-lg bg-white/[0.03] border border-white/5">
-                  <span className="text-[11px] text-neutral-400 block">10-Year Savings</span>
-                  <span className="text-base sm:text-lg font-bold text-green-400 mt-1 block">
+                <div className="p-4 rounded-2xl bg-emerald-100/70 border border-emerald-300">
+                  <span className="text-[10px] font-bold text-emerald-900 uppercase block">10-Year Total ROI</span>
+                  <span className="text-xl font-heading font-extrabold text-emerald-950 mt-1 block">
                     {formatCurrency(tenYearSavings)}
                   </span>
                 </div>
               </div>
 
-              {/* Key Payback Metrics Strip */}
-              <div className="grid sm:grid-cols-2 gap-4 py-2 border-t border-neutral-200 text-xs">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-solar-500/10 text-solar-400 flex items-center justify-center shrink-0">
-                    <Icon name="trending-up" size={18} />
-                  </div>
-                  <div>
-                    <span className="text-neutral-400 block">Estimated Payback Period</span>
-                    <strong className="text-white text-sm">~{paybackMonths} Months</strong>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center shrink-0">
-                    <Icon name="sun" size={18} />
-                  </div>
-                  <div>
-                    <span className="text-neutral-400 block">Annual Carbon Reduction</span>
-                    <strong className="text-green-400 text-sm">~{co2ReductionTonnes} Tonnes CO₂e</strong>
-                  </div>
-                </div>
-              </div>
-
-              {/* Cost Breakdown Details */}
-              <div className="p-4 rounded-lg bg-neutral-50 border border-white/5 space-y-2 text-xs text-neutral-300">
-                <div className="flex justify-between">
-                  <span>Current Monthly Generator Fuel Spend:</span>
-                  <span className="font-semibold text-neutral-900">{formatCurrency(monthlyFuelSpend)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Current Monthly Generator Maintenance:</span>
-                  <span className="font-semibold text-neutral-900">{formatCurrency(monthlyMaintenanceSpend)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Current Total Annual Energy Expenditure:</span>
-                  <span className="font-bold text-red-400">{formatCurrency(totalAnnualCurrentSpend)}</span>
-                </div>
-              </div>
-
-              {/* Legal Disclaimer */}
-              <div className="p-4 rounded-lg bg-solar-500/10 border border-solar-500/20 text-xs text-amber-200/90 leading-relaxed flex items-start gap-2.5">
-                <Icon name="shield" size={16} className="text-solar-400 shrink-0 mt-0.5" />
+              {/* Payback period box */}
+              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between">
                 <div>
-                  <strong className="text-solar-300 block mb-0.5">Assumptions & Disclaimer:</strong>
-                  Educational cost comparison estimate only. Actual fuel burn, generator mechanical efficiency, and solar irradiance yield depend on local ambient weather and load cycling. Does not constitute an absolute financial guarantee.
+                  <span className="text-xs font-bold text-slate-900 block">Estimated Capital Payback Period:</span>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Time required for fuel savings to fully pay off your solar hardware.</p>
+                </div>
+                <div className="text-right shrink-0">
+                  <span className="text-2xl font-heading font-extrabold text-emerald-700 font-mono">
+                    ~{paybackMonths} Months
+                  </span>
+                  <span className="text-[10px] text-slate-400 block">({(paybackMonths / 12).toFixed(1)} Years)</span>
                 </div>
               </div>
-            </div>
 
-            {/* Direct Sizing Handoff */}
-            <div className="p-6 rounded-lg bg-white/[0.03] border border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div>
-                <h4 className="font-bold text-sm text-neutral-900">Size a System for Your Facility</h4>
-                <p className="text-xs text-neutral-400">Match your {generatorKva}kVA load with our AI Power Planner.</p>
+              {/* CTA */}
+              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="/power/builder"
+                  className="flex-1 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors text-center shadow-md shadow-emerald-600/20"
+                >
+                  Configure Matched Solar Package →
+                </Link>
+                <Link
+                  href="/power/products"
+                  className="py-4 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors text-center"
+                >
+                  Shop Hardware
+                </Link>
               </div>
-              <Link
-                href="/power/planner"
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-primary-600 to-amber-500 text-white font-bold text-xs hover:opacity-95 transition-opacity whitespace-nowrap"
-              >
-                Launch AI Planner &rarr;
-              </Link>
             </div>
           </div>
         </div>

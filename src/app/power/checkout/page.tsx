@@ -94,29 +94,29 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-[#f8fafc] text-slate-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-5xl">
         {/* Header */}
         <div className="text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-solar-500/10 border border-solar-500/20 text-solar-400 text-xs font-semibold">
-            <Icon name="warehouse" size={14} />
-            Secure Order Checkout
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold shadow-sm">
+            <Icon name="shield" size={14} className="text-emerald-600" />
+            3RD ENERGY SERVICES LTD · SECURE CHECKOUT
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-neutral-900">
-            Complete Your <span className="text-solar-400">Power Order.</span>
+          <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-950 tracking-tight">
+            Complete Your <span className="text-emerald-700">Solar & Power Order.</span>
           </h1>
         </div>
 
         {items.length === 0 ? (
-          <div className="p-12 rounded-lg bg-white border border-neutral-200 text-center space-y-4 max-w-md mx-auto">
-            <Icon name="warehouse" size={40} className="mx-auto text-neutral-500" />
-            <h3 className="font-bold text-white text-lg">Your cart is currently empty</h3>
-            <p className="text-xs text-neutral-400">
-              Explore our power equipment catalogue to select products or turnkey packages.
+          <div className="p-12 rounded-3xl bg-white border border-slate-200 text-center space-y-4 max-w-md mx-auto shadow-sm">
+            <Icon name="shopping-cart" size={40} className="mx-auto text-slate-400" />
+            <h3 className="font-bold text-slate-900 text-lg">Your cart is currently empty</h3>
+            <p className="text-xs text-slate-500">
+              Explore our portable power banks, solar generators, and hybrid inverters to add items.
             </p>
             <Link
               href="/power/products"
-              className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-primary-600 to-amber-500 text-white font-bold text-xs"
+              className="inline-block px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-md shadow-emerald-600/20"
             >
               Browse Equipment Catalogue
             </Link>
@@ -126,7 +126,7 @@ export default function CheckoutPage() {
             {/* Left Column: Customer & Delivery Details (7 cols) */}
             <div className="lg:col-span-7 space-y-6">
               {error && (
-                <div className="p-4 rounded-lg bg-red-950/40 border border-red-500/30 text-red-300 text-xs flex items-center justify-between">
+                <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center justify-between">
                   <span>{error}</span>
                   <button type="button" onClick={() => setError(null)} className="text-red-400 p-1">
                     <Icon name="x" size={14} />
@@ -135,251 +135,267 @@ export default function CheckoutPage() {
               )}
 
               {/* 1. Contact Information */}
-              <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
-                <h2 className="font-heading font-bold text-base text-white border-b border-neutral-200 pb-3 flex items-center gap-2">
-                  <Icon name="target" size={16} className="text-solar-400" />
+              <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                <h2 className="font-heading font-bold text-base text-slate-950 border-b border-slate-100 pb-3 flex items-center gap-2">
+                  <Icon name="user" size={16} className="text-emerald-600" />
                   1. Customer Contact Details
                 </h2>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-xs font-semibold text-neutral-300 block mb-1.5">First Name *</label>
+                    <label className="text-xs font-semibold text-slate-700 block mb-1.5">First Name *</label>
                     <input
                       type="text"
                       required
                       value={customer.firstName}
                       onChange={(e) => setCustomer({ ...customer, firstName: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-semibold text-neutral-300 block mb-1.5">Last Name</label>
+                    <label className="text-xs font-semibold text-slate-700 block mb-1.5">Last Name</label>
                     <input
                       type="text"
                       value={customer.lastName}
                       onChange={(e) => setCustomer({ ...customer, lastName: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-xs font-semibold text-neutral-300 block mb-1.5">Email Address *</label>
+                    <label className="text-xs font-semibold text-slate-700 block mb-1.5">Email Address *</label>
                     <input
                       type="email"
                       required
                       value={customer.email}
                       onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-semibold text-neutral-300 block mb-1.5">Phone Number *</label>
+                    <label className="text-xs font-semibold text-slate-700 block mb-1.5">Phone Number (WhatsApp) *</label>
                     <input
                       type="tel"
                       required
+                      placeholder="+234..."
                       value={customer.phone}
                       onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
                     />
                   </div>
+                </div>
+
+                <div>
+                  <label className="text-xs font-semibold text-slate-700 block mb-1.5">Company / Organization (Optional)</label>
+                  <input
+                    type="text"
+                    value={customer.organisation}
+                    onChange={(e) => setCustomer({ ...customer, organisation: e.target.value })}
+                    placeholder="e.g. Acme Logistics Ltd"
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
+                  />
                 </div>
               </div>
 
               {/* 2. Fulfillment Method */}
-              <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
-                <h2 className="font-heading font-bold text-base text-white border-b border-neutral-200 pb-3 flex items-center gap-2">
-                  <Icon name="warehouse" size={16} className="text-solar-400" />
+              <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                <h2 className="font-heading font-bold text-base text-slate-950 border-b border-slate-100 pb-3 flex items-center gap-2">
+                  <Icon name="truck" size={16} className="text-emerald-600" />
                   2. Delivery & Fulfillment
                 </h2>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div
                     onClick={() => setFulfillmentType('delivery')}
-                    className={`p-4 rounded-lg border cursor-pointer transition-all ${
+                    className={`p-4 rounded-2xl border cursor-pointer transition-all ${
                       fulfillmentType === 'delivery'
-                        ? 'bg-solar-500/15 border-solar-500/60 text-white'
-                        : 'bg-neutral-50 border-neutral-200 text-neutral-400'
+                        ? 'bg-emerald-50/80 border-emerald-500 shadow-sm'
+                        : 'bg-slate-50 border-slate-200 hover:bg-slate-100/70'
                     }`}
                   >
-                    <span className="font-bold text-xs block">Site Delivery</span>
-                    <span className="text-[11px] text-solar-400 block mt-0.5">+₦35,000 Flat rate</span>
+                    <div className="flex items-center gap-2 font-bold text-xs text-slate-900">
+                      <Icon name="truck" size={14} className="text-emerald-600" />
+                      Site Delivery
+                    </div>
+                    <p className="text-[11px] text-slate-500 mt-1">Direct to your premises</p>
                   </div>
 
                   <div
                     onClick={() => setFulfillmentType('collection')}
-                    className={`p-4 rounded-lg border cursor-pointer transition-all ${
+                    className={`p-4 rounded-2xl border cursor-pointer transition-all ${
                       fulfillmentType === 'collection'
-                        ? 'bg-solar-500/15 border-solar-500/60 text-white'
-                        : 'bg-neutral-50 border-neutral-200 text-neutral-400'
+                        ? 'bg-emerald-50/80 border-emerald-500 shadow-sm'
+                        : 'bg-slate-50 border-slate-200 hover:bg-slate-100/70'
                     }`}
                   >
-                    <span className="font-bold text-xs block">Depot Collection</span>
-                    <span className="text-[11px] text-green-400 block mt-0.5">Free Pickup</span>
+                    <div className="flex items-center gap-2 font-bold text-xs text-slate-900">
+                      <Icon name="warehouse" size={14} className="text-emerald-600" />
+                      Depot Collection
+                    </div>
+                    <p className="text-[11px] text-slate-500 mt-1">Free pick-up at hub</p>
                   </div>
                 </div>
 
                 {fulfillmentType === 'delivery' ? (
                   <div className="space-y-4 pt-2">
                     <div>
-                      <label className="text-xs font-semibold text-neutral-300 block mb-1.5">Delivery Address *</label>
+                      <label className="text-xs font-semibold text-slate-700 block mb-1.5">Delivery Address *</label>
                       <input
                         type="text"
                         required
+                        placeholder="Street address / Estate / Facility"
                         value={deliveryAddress.address}
                         onChange={(e) => setDeliveryAddress({ ...deliveryAddress, address: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
-                        placeholder="Street address / landmark"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
                       />
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="text-xs font-semibold text-neutral-300 block mb-1.5">City *</label>
+                        <label className="text-xs font-semibold text-slate-700 block mb-1.5">City *</label>
                         <input
                           type="text"
                           required
                           value={deliveryAddress.city}
                           onChange={(e) => setDeliveryAddress({ ...deliveryAddress, city: e.target.value })}
-                          className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
                         />
                       </div>
                       <div>
-                        <label className="text-xs font-semibold text-neutral-300 block mb-1.5">State *</label>
+                        <label className="text-xs font-semibold text-slate-700 block mb-1.5">State *</label>
                         <select
                           value={deliveryAddress.state}
                           onChange={(e) => setDeliveryAddress({ ...deliveryAddress, state: e.target.value })}
-                          className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
                         >
-                          <option value="Lagos">Lagos</option>
-                          <option value="Abuja (FCT)">Abuja (FCT)</option>
-                          <option value="Rivers (Port Harcourt)">Rivers (Port Harcourt)</option>
-                          <option value="Ogun">Ogun</option>
-                          <option value="Oyo">Oyo</option>
-                          <option value="Delta">Delta</option>
-                          <option value="Other">Other</option>
+                          {['Lagos', 'Abuja (FCT)', 'Rivers (Port Harcourt)', 'Ogun', 'Oyo (Ibadan)', 'Delta', 'Kano', 'Enugu', 'Edo', 'Other State'].map((s) => (
+                            <option key={s} value={s}>{s}</option>
+                          ))}
                         </select>
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <div className="space-y-2 pt-2">
-                    <label className="text-xs font-semibold text-neutral-300 block">Select Collection Depot</label>
+                  <div className="pt-2">
+                    <label className="text-xs font-semibold text-slate-700 block mb-1.5">Select Collection Depot Hub</label>
                     <select
                       value={depotLocation}
                       onChange={(e) => setDepotLocation(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
                     >
-                      <option value="Lagos Central Hub (Ikeja, Lagos)">Lagos Central Logistics Hub (Ikeja)</option>
-                      <option value="Port Harcourt Industrial Depot (Trans-Amadi, Rivers)">Port Harcourt Industrial Depot (Trans-Amadi)</option>
-                      <option value="Abuja Commercial Depot (Idu Industrial Layout, FCT)">Abuja Commercial Depot (Idu Industrial Layout)</option>
+                      <option value="Lagos Central Hub, Ikeja Industrial Estate">Lagos Central Hub — Ikeja Industrial Estate</option>
+                      <option value="Lagos Island Hub, Lekki Phase 1">Lagos Island Hub — Lekki Phase 1</option>
+                      <option value="Abuja Operations Centre, Garki Area 11">Abuja Operations Centre — Garki Area 11</option>
+                      <option value="Port Harcourt Logistics Depot, Trans-Amadi">Port Harcourt Logistics Depot — Trans-Amadi</option>
                     </select>
                   </div>
                 )}
               </div>
 
-              {/* 3. Payment Method (Sandbox Notice) */}
-              <div className="p-6 rounded-lg bg-white border border-neutral-200 space-y-4">
-                <div className="flex items-center justify-between border-b border-neutral-200 pb-3">
-                  <h2 className="font-heading font-bold text-base text-white flex items-center gap-2">
-                    <Icon name="shield" size={16} className="text-solar-400" />
-                    3. Payment Channel
-                  </h2>
-                  <span className="px-2.5 py-0.5 rounded-full bg-solar-500/10 border border-solar-500/30 text-[10px] font-bold text-solar-400">
-                    Phase 2 Sandbox
-                  </span>
-                </div>
+              {/* 3. Payment Method */}
+              <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                <h2 className="font-heading font-bold text-base text-slate-950 border-b border-slate-100 pb-3 flex items-center gap-2">
+                  <Icon name="credit-card" size={16} className="text-emerald-600" />
+                  3. Settlement Method
+                </h2>
 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="space-y-2">
                   {[
-                    { id: 'bank_transfer', label: 'Direct Bank Wire' },
-                    { id: 'card', label: 'Debit / Credit Card' },
-                    { id: 'invoice', label: 'B2B Proforma Invoice' },
-                  ].map((m) => (
-                    <div
-                      key={m.id}
-                      onClick={() => setPaymentMethod(m.id as 'bank_transfer' | 'card' | 'invoice')}
-                      className={`p-3.5 rounded-xl border text-center cursor-pointer transition-all ${
-                        paymentMethod === m.id
-                          ? 'bg-solar-500/15 border-solar-500/60 text-white font-bold'
-                          : 'bg-neutral-50 border-neutral-200 text-neutral-400'
+                    { id: 'bank_transfer', label: 'Corporate Bank Wire / Instant Transfer', desc: 'Direct transfer to 3RD Energy Services Ltd corporate account with instant confirmation.' },
+                    { id: 'invoice', label: 'Official Proforma Invoice for Corporate Procurement', desc: 'Generate a signed proforma invoice with PO reference for company finance approval.' },
+                  ].map((pm) => (
+                    <label
+                      key={pm.id}
+                      className={`flex items-start gap-3 p-3.5 rounded-2xl border cursor-pointer transition-all ${
+                        paymentMethod === pm.id
+                          ? 'bg-emerald-50/80 border-emerald-500 shadow-sm'
+                          : 'bg-slate-50 border-slate-200 hover:bg-slate-100/70'
                       }`}
                     >
-                      <span className="text-xs block">{m.label}</span>
-                    </div>
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        checked={paymentMethod === pm.id}
+                        onChange={() => setPaymentMethod(pm.id as any)}
+                        className="mt-0.5 text-emerald-600 focus:ring-emerald-500"
+                      />
+                      <div>
+                        <span className="text-xs font-bold text-slate-900 block">{pm.label}</span>
+                        <span className="text-[11px] text-slate-500 block mt-0.5">{pm.desc}</span>
+                      </div>
+                    </label>
                   ))}
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-white/5 text-[11px] text-neutral-400 leading-relaxed">
-                  🔒 <strong>Phase 2 Environment:</strong> Production payment gateway credentials will be activated upon launch. Placing an order will generate a confirmed structured order reservation and invoice reference.
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Order Summary & Place Order (5 cols) */}
-            <div className="lg:col-span-5 sticky top-28 space-y-6">
-              <div className="p-7 rounded-lg bg-white border border-neutral-300 backdrop-blur-md shadow-xl space-y-6">
-                <h3 className="font-heading font-bold text-lg text-white border-b border-neutral-200 pb-3">
-                  Order Summary ({items.length} {items.length === 1 ? 'item' : 'items'})
-                </h3>
+            {/* Right Column: Order Summary & Review (5 cols) */}
+            <div className="lg:col-span-5 space-y-6 sticky top-28">
+              <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-lg space-y-6">
+                <h2 className="font-heading font-bold text-base text-slate-950 border-b border-slate-100 pb-3">
+                  Order Summary ({items.length} {items.length === 1 ? 'Item' : 'Items'})
+                </h2>
 
-                {/* Items Mini List */}
-                <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
+                <div className="space-y-3.5 max-h-72 overflow-y-auto pr-1">
                   {items.map((item) => (
-                    <div key={item.id} className="flex justify-between items-start gap-2 text-xs py-1.5 border-b border-white/5">
-                      <div>
-                        <span className="font-medium text-white block">{item.product.name}</span>
-                        <span className="text-neutral-400 text-[11px]">Qty: {item.quantity} × {formatCurrency(item.unitPrice)}</span>
+                    <div key={item.id} className="flex items-center justify-between text-xs pb-3 border-b border-slate-100">
+                      <div className="min-w-0 pr-2">
+                        <p className="font-bold text-slate-900 truncate">{item.name}</p>
+                        <p className="text-[11px] text-slate-500">Qty: {item.quantity} × {formatCurrency(item.unitPrice)}</p>
                       </div>
-                      <span className="font-semibold text-white whitespace-nowrap">
+                      <span className="font-bold text-slate-950 shrink-0 font-mono">
                         {formatCurrency(item.unitPrice * item.quantity)}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                {/* Costs Breakdown */}
-                <div className="space-y-2 text-xs border-t border-neutral-200 pt-3">
-                  <div className="flex justify-between text-neutral-400">
-                    <span>Equipment Subtotal</span>
-                    <span className="text-white font-medium">{formatCurrency(subtotal)}</span>
+                {/* Subtotal & Totals */}
+                <div className="space-y-2 text-xs pt-2 border-t border-slate-100">
+                  <div className="flex justify-between text-slate-600">
+                    <span>Equipment Subtotal:</span>
+                    <span className="font-semibold text-slate-900 font-mono">{formatCurrency(subtotal)}</span>
                   </div>
-                  {installationFeeEstimate > 0 && (
-                    <div className="flex justify-between text-solar-400">
-                      <span>Turnkey Installation</span>
-                      <span className="font-semibold">+{formatCurrency(installationFeeEstimate)}</span>
+                  {installationRequested && (
+                    <div className="flex justify-between text-emerald-700">
+                      <span>Turnkey Installation:</span>
+                      <span className="font-semibold font-mono">{formatCurrency(installationFeeEstimate)}</span>
                     </div>
                   )}
-                  {fulfillmentType === 'delivery' && (
-                    <div className="flex justify-between text-neutral-400">
-                      <span>Site Delivery Logistics</span>
-                      <span className="text-white font-medium">+{formatCurrency(shippingFee)}</span>
-                    </div>
-                  )}
-                  <div className="flex justify-between text-sm font-bold text-white pt-2 border-t border-neutral-200">
-                    <span>Total Amount</span>
-                    <span className="text-solar-400 text-xl">{formatCurrency(grandTotal)}</span>
+                  <div className="flex justify-between text-slate-600">
+                    <span>Logistics / Dispatch:</span>
+                    <span className="font-semibold text-slate-900 font-mono">
+                      {fulfillmentType === 'delivery' ? formatCurrency(shippingFee) : 'FREE (Depot)'}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-base font-heading font-extrabold text-slate-950 pt-3 border-t border-slate-200">
+                    <span>Grand Total:</span>
+                    <span className="text-emerald-700 font-mono">{formatCurrency(grandTotal)}</span>
                   </div>
                 </div>
 
-                {/* Submit Action Button */}
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-4 rounded-lg bg-gradient-to-r from-primary-600 via-orange-500 to-amber-500 text-white font-bold text-xs sm:text-sm hover:opacity-95 transition-opacity shadow-lg shadow-primary-950/50 flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-all shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
                 >
                   {isLoading ? (
                     <>
-                      <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
-                      Confirming Order...
+                      <Icon name="loader" size={16} className="animate-spin" />
+                      Processing Secure Order...
                     </>
                   ) : (
                     <>
-                      <Icon name="check-circle" size={16} />
-                      Confirm & Place Order
+                      <Icon name="check" size={16} />
+                      Confirm & Place Order ({formatCurrency(grandTotal)})
                     </>
                   )}
                 </button>
+
+                <p className="text-[11px] text-slate-400 text-center leading-relaxed">
+                  🔒 Secured by 3RD Energy Services Ltd. Instant email receipt and dispatch tracking generated upon order submission.
+                </p>
               </div>
             </div>
           </form>

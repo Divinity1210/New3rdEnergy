@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/Icon';
 import { ConciergeMessage } from '@/lib/types';
+import { getWhatsAppUrl } from '@/lib/utils';
 
 export default function ConciergePage() {
   const [messages, setMessages] = useState<ConciergeMessage[]>([
@@ -11,13 +12,13 @@ export default function ConciergePage() {
       id: 'welcome',
       sender: 'assistant',
       content:
-        'Hello! I am the **3rd Energy AI Product Concierge**. How can I help you today? Ask me about inverter ratings, lithium battery sizing, solar panel calculations, or equipment compatibility.',
+        'Hello! I am the **3RD Energy Services Ltd Technical AI Concierge**. How can I assist you today? Ask me about inverter sizing, LiFePO4 battery capacity, portable power banks, or appliance load calculations.',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       suggestedActions: [
         { label: 'What battery works with 5kVA inverter?', actionType: 'prompt' },
-        { label: 'Lithium vs Gel batteries difference?', actionType: 'prompt' },
+        { label: 'Laptop power bank specs & runtime?', actionType: 'prompt' },
         { label: 'How many panels to power 1.5HP AC?', actionType: 'prompt' },
-        { label: 'How much can I save vs generator?', href: '/power/savings' },
+        { label: 'Diesel vs Solar Savings Calculator', href: '/power/savings' },
       ],
     },
   ]);
@@ -66,11 +67,11 @@ export default function ConciergePage() {
         id: `bot-fallback-${Date.now()}`,
         sender: 'assistant',
         content:
-          'I am uncertain about this specific configuration. For complex single/three-phase setups or custom generator synchronization, please **speak directly to a 3rd Energy technical specialist**.',
+          'For complex commercial 3-phase setups or custom generator synchronization, please **chat directly with our certified solar engineers**.',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         suggestedActions: [
-          { label: 'Speak to an Engineer', href: '/contact' },
-          { label: 'Browse Verified Catalogue', href: '/power/products' },
+          { label: 'WhatsApp Engineer (+234 1 234 5680)', href: getWhatsAppUrl('Hello 3RD Energy Services Ltd, I need technical engineering advice.') },
+          { label: 'Browse Store Equipment', href: '/power/products' },
         ],
       };
       setMessages((prev) => [...prev, fallbackMsg]);
@@ -80,89 +81,92 @@ export default function ConciergePage() {
   };
 
   return (
-    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-[#f8fafc] text-slate-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-4xl">
         {/* Header */}
         <div className="text-center space-y-3 mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-semibold">
-            <Icon name="sparkles" size={14} />
-            Verified Technical Intelligence
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold shadow-sm">
+            <Icon name="sparkles" size={14} className="text-emerald-600" />
+            3RD ENERGY SERVICES LTD · AI TECHNICAL CONCIERGE
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
-            AI Product <span className="text-solar-400">Concierge.</span>
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-slate-950 tracking-tight">
+            AI Engineering <span className="text-emerald-700">Concierge.</span>
           </h1>
-          <p className="text-sm text-neutral-400 max-w-xl mx-auto">
-            Get instant answers on equipment compatibility, voltages, and battery sizing bounded strictly by verified engineering data.
+          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
+            Get instant verified answers on equipment compatibility, voltages, portable power banks, and battery sizing.
           </p>
         </div>
 
         {/* Chat Container */}
-        <div className="rounded-lg bg-white border border-neutral-200 backdrop-blur-md shadow-xl overflow-hidden flex flex-col h-[640px]">
+        <div className="rounded-3xl bg-white border border-slate-200 shadow-xl overflow-hidden flex flex-col h-[640px]">
           {/* Top Chat Bar */}
-          <div className="p-4 px-6 border-b border-neutral-200 bg-neutral-50 flex items-center justify-between">
+          <div className="p-4 px-6 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center border border-purple-500/30">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
                 <Icon name="sparkles" size={18} />
               </div>
               <div>
-                <h3 className="font-bold text-xs sm:text-sm text-neutral-900">3rd Energy Concierge</h3>
-                <span className="text-[10px] text-green-400 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                  Online · Verified Knowledge Base
+                <h3 className="font-bold text-xs sm:text-sm text-slate-950">3RD Energy AI Assistant</h3>
+                <span className="text-[10px] text-emerald-700 font-bold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Online · Verified OEM Knowledge Base
                 </span>
               </div>
             </div>
 
-            <Link
-              href="/contact"
-              className="px-3 py-1.5 rounded-lg bg-neutral-50 hover:bg-neutral-100 text-neutral-300 text-xs font-semibold border border-neutral-200 transition-colors"
+            <a
+              href={getWhatsAppUrl('Hello 3RD Energy Services Ltd, I need technical solar advice.')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm"
             >
-              Contact Specialist
-            </Link>
+              <Icon name="whatsapp" size={14} />
+              WhatsApp Desk
+            </a>
           </div>
 
           {/* Messages Flow */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6">
+          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-[#fafafa]">
             {messages.map((msg) => (
               <div
                 key={msg.id}
                 className={`flex gap-3 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {msg.sender === 'assistant' && (
-                  <div className="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 flex items-center justify-center shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-1 shadow-sm font-bold">
                     <Icon name="sparkles" size={14} />
                   </div>
                 )}
 
                 <div
-                  className={`max-w-xl rounded-lg p-4 text-xs leading-relaxed space-y-3 ${
+                  className={`max-w-xl rounded-2xl p-4 text-xs leading-relaxed space-y-3 shadow-sm ${
                     msg.sender === 'user'
-                      ? 'bg-gradient-to-r from-primary-600 to-amber-500 text-white font-medium shadow-lg shadow-primary-950/40 rounded-tr-none'
-                      : 'bg-neutral-50 border border-neutral-200 text-neutral-200 rounded-tl-none'
+                      ? 'bg-emerald-600 text-white font-medium rounded-tr-none'
+                      : 'bg-white border border-slate-200 text-slate-800 rounded-tl-none'
                   }`}
                 >
-                  <div className="whitespace-pre-line prose-invert">
+                  <div className="whitespace-pre-line leading-relaxed">
                     {msg.content}
                   </div>
 
                   {/* Suggested Action Chips */}
                   {msg.suggestedActions && msg.suggestedActions.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-neutral-200">
+                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
                       {msg.suggestedActions.map((act, i) =>
                         act.href ? (
                           <Link
                             key={i}
                             href={act.href}
-                            className="px-3 py-1 rounded-full bg-neutral-100 hover:bg-white/20 text-[11px] font-semibold text-solar-300 border border-solar-500/20 transition-colors flex items-center gap-1"
+                            className="px-3 py-1 rounded-full bg-emerald-50 hover:bg-emerald-100 text-[11px] font-bold text-emerald-800 border border-emerald-200 transition-colors flex items-center gap-1"
                           >
                             <span>{act.label}</span>
-                            <Icon name="arrow-up-right" size={10} />
+                            <Icon name="arrow-right" size={10} />
                           </Link>
                         ) : (
                           <button
                             key={i}
                             onClick={() => sendMessage(act.label)}
-                            className="px-3 py-1 rounded-full bg-purple-500/10 hover:bg-purple-500/20 text-[11px] font-semibold text-purple-300 border border-purple-500/30 transition-colors"
+                            className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-[11px] font-bold text-slate-700 border border-slate-200 transition-colors cursor-pointer"
                           >
                             {act.label}
                           </button>
@@ -171,7 +175,7 @@ export default function ConciergePage() {
                     </div>
                   )}
 
-                  <span className="text-[9px] text-neutral-500 block text-right">
+                  <span className={`text-[9px] block text-right font-mono ${msg.sender === 'user' ? 'text-emerald-200' : 'text-slate-400'}`}>
                     {msg.timestamp}
                   </span>
                 </div>
@@ -179,42 +183,35 @@ export default function ConciergePage() {
             ))}
 
             {isLoading && (
-              <div className="flex gap-3 items-center text-xs text-neutral-400">
-                <div className="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-500/30 text-purple-400 flex items-center justify-center shrink-0">
-                  <Icon name="sparkles" size={14} />
-                </div>
-                <div className="p-3 rounded-lg bg-neutral-50 border border-neutral-200 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce" />
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce [animation-delay:0.2s]" />
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce [animation-delay:0.4s]" />
-                  <span>Checking equipment specs...</span>
-                </div>
+              <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                <Icon name="loader" size={14} className="animate-spin text-emerald-600" />
+                Engineering intelligence is analyzing your query...
               </div>
             )}
           </div>
 
-          {/* Chat Input Bar */}
+          {/* Input Box */}
           <form
             onSubmit={(e) => {
               e.preventDefault();
               sendMessage();
             }}
-            className="p-4 border-t border-neutral-200 bg-neutral-50 flex items-center gap-3"
+            className="p-4 bg-white border-t border-slate-100 flex items-center gap-3"
           >
             <input
               type="text"
+              placeholder="Ask an engineering question (e.g. Can 5kVA run my 1.5HP Inverter AC?)..."
               value={inputQuery}
               onChange={(e) => setInputQuery(e.target.value)}
-              placeholder="Ask a technical equipment question..."
-              className="flex-1 px-4 py-3 rounded-xl bg-white border border-neutral-300 text-white text-xs placeholder:text-neutral-500 focus:border-solar-400 focus:outline-none"
+              className="flex-1 px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:bg-white focus:outline-none"
             />
             <button
               type="submit"
               disabled={!inputQuery.trim() || isLoading}
-              className="p-3 rounded-xl bg-gradient-to-r from-primary-600 to-amber-500 text-white hover:opacity-95 disabled:opacity-30 transition-opacity"
-              aria-label="Send query"
+              className="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors flex items-center gap-1.5 shadow-md shadow-emerald-600/20 disabled:opacity-50 cursor-pointer"
             >
-              <Icon name="arrow-right" size={16} />
+              <span>Send</span>
+              <Icon name="arrow-right" size={14} />
             </button>
           </form>
         </div>

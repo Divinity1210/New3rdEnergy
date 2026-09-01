@@ -21,7 +21,7 @@ export default function PowerCalculatorPage() {
     { id: '2', name: 'Smart TV & Decoder', watts: 100, quantity: 1, hours: 6, surgeMultiplier: 1.2 },
     { id: '3', name: 'LED Lighting Points', watts: 12, quantity: 10, hours: 8, surgeMultiplier: 1.1 },
     { id: '4', name: 'Ceiling / Standing Fans', watts: 65, quantity: 4, hours: 10, surgeMultiplier: 1.5 },
-    { id: '5', name: 'Wi-Fi Router & CCTV', watts: 65, quantity: 1, hours: 24, surgeMultiplier: 1.2 },
+    { id: '5', name: 'Wi-Fi Router & CCTV Hub', watts: 65, quantity: 1, hours: 24, surgeMultiplier: 1.2 },
     { id: '6', name: 'Workstation Laptops', watts: 65, quantity: 2, hours: 8, surgeMultiplier: 1.2 },
   ]);
 
@@ -90,68 +90,68 @@ export default function PowerCalculatorPage() {
   const minInverterKva = Number(((totalRunningWatts * 1.25) / 800).toFixed(1)); // 0.8 power factor
 
   return (
-    <div className="bg-neutral-50 text-neutral-900 min-h-screen pt-32 pb-24 lg:pt-40">
+    <div className="bg-[#f8fafc] text-slate-900 min-h-screen pt-32 pb-24 lg:pt-40">
       <div className="container-wide max-w-6xl">
         {/* Header */}
         <div className="text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-solar-500/10 border border-solar-500/20 text-solar-400 text-xs font-semibold">
-            <Icon name="chart" size={14} />
-            Transparent Energy Audit
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold shadow-sm">
+            <Icon name="calculator" size={14} className="text-emerald-600" />
+            3RD ENERGY SERVICES LTD · ENERGY SIZING AUDIT
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-neutral-900">
-            Power & Energy <span className="text-solar-400">Load Calculator.</span>
+          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-slate-950 tracking-tight">
+            Power & Appliance <span className="text-emerald-700">Load Calculator.</span>
           </h1>
-          <p className="text-sm text-neutral-400 max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
             Audit your appliances, edit exact wattages and runtime hours, and see your real-time kilowatt-hour demand and battery storage sizing.
           </p>
         </div>
 
         {/* Top Aggregation Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <div className="p-6 rounded-lg bg-white border border-neutral-200 shadow-xl">
-            <span className="text-xs text-neutral-400 block">Total Running Load</span>
-            <span className="text-2xl sm:text-3xl font-extrabold text-white mt-1 block">
-              {totalRunningWatts.toLocaleString()} <span className="text-sm font-normal text-neutral-400">Watts</span>
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm">
+            <span className="text-xs font-bold text-slate-500 block uppercase tracking-wider">Total Running Load</span>
+            <span className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-950 mt-1 block">
+              {totalRunningWatts.toLocaleString()} <span className="text-sm font-normal text-slate-500">Watts</span>
             </span>
-            <span className="text-[11px] text-neutral-500 block mt-1">Continuous load demand</span>
+            <span className="text-[11px] text-slate-400 block mt-1">Continuous load demand</span>
           </div>
 
-          <div className="p-6 rounded-lg bg-white border border-neutral-200 shadow-xl">
-            <span className="text-xs text-neutral-400 block">Peak Inrush Surge</span>
-            <span className="text-2xl sm:text-3xl font-extrabold text-solar-400 mt-1 block">
-              {totalSurgeWatts.toLocaleString()} <span className="text-sm font-normal text-neutral-400">Watts</span>
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm">
+            <span className="text-xs font-bold text-slate-500 block uppercase tracking-wider">Peak Inrush Surge</span>
+            <span className="text-2xl sm:text-3xl font-heading font-extrabold text-amber-600 mt-1 block">
+              {totalSurgeWatts.toLocaleString()} <span className="text-sm font-normal text-slate-500">Watts</span>
             </span>
-            <span className="text-[11px] text-neutral-500 block mt-1">Motor compressor startup</span>
+            <span className="text-[11px] text-slate-400 block mt-1">Compressor & motor startup</span>
           </div>
 
-          <div className="p-6 rounded-lg bg-white border border-neutral-200 shadow-xl">
-            <span className="text-xs text-neutral-400 block">Daily Energy Demand</span>
-            <span className="text-2xl sm:text-3xl font-extrabold text-white mt-1 block">
-              {totalDailyKwh.toFixed(2)} <span className="text-sm font-normal text-neutral-400">kWh / Day</span>
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm">
+            <span className="text-xs font-bold text-slate-500 block uppercase tracking-wider">Daily Energy Demand</span>
+            <span className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-950 mt-1 block">
+              {totalDailyKwh.toFixed(2)} <span className="text-sm font-normal text-slate-500">kWh / Day</span>
             </span>
-            <span className="text-[11px] text-neutral-500 block mt-1">24-hour cycle consumption</span>
+            <span className="text-[11px] text-slate-400 block mt-1">24-hour cycle consumption</span>
           </div>
 
-          <div className="p-6 rounded-lg bg-white border border-solar-500/30 bg-gradient-to-br from-amber-950/20 to-neutral-900 shadow-xl">
-            <span className="text-xs text-solar-400 font-semibold block">Recommended Inverter & Storage</span>
-            <span className="text-xl sm:text-2xl font-extrabold text-solar-400 mt-1 block">
+          <div className="p-6 rounded-3xl bg-emerald-50 border border-emerald-200 shadow-sm">
+            <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider block">Recommended System</span>
+            <span className="text-xl sm:text-2xl font-heading font-extrabold text-emerald-900 mt-1 block">
               {minInverterKva >= 3.5 ? `${Math.ceil(minInverterKva)}kVA` : '3.5kVA'} · {minBatteryKwh > 5.12 ? `${Math.ceil(minBatteryKwh)}kWh` : '5.12kWh'}
             </span>
-            <span className="text-[11px] text-amber-200/80 block mt-1">LiFePO4 battery & pure sine</span>
+            <span className="text-[11px] text-emerald-700 block mt-1 font-medium">LiFePO4 Lithium & Pure Sine</span>
           </div>
         </div>
 
         {/* Editable Table Card */}
-        <div className="rounded-lg bg-white border border-neutral-200 backdrop-blur-md shadow-xl overflow-hidden mb-8">
-          <div className="p-6 border-b border-neutral-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <h2 className="font-heading font-bold text-lg text-neutral-900">Appliance Load Audit Matrix</h2>
-            <div className="flex flex-wrap gap-2">
-              <span className="text-xs text-neutral-400 self-center mr-1">Quick Add:</span>
+        <div className="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden mb-8">
+          <div className="p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <h2 className="font-heading font-bold text-lg text-slate-950">Appliance Load Audit Matrix</h2>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold text-slate-400 mr-1 uppercase">Quick Add:</span>
               {defaultAppliances.slice(0, 4).map((preset) => (
                 <button
                   key={preset.id}
                   onClick={() => addPreset(preset.id)}
-                  className="px-3 py-1.5 rounded-lg bg-neutral-50 hover:bg-neutral-100 text-xs font-semibold text-neutral-300 border border-neutral-200 transition-colors"
+                  className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-emerald-50 hover:text-emerald-800 text-xs font-bold text-slate-700 border border-slate-200 transition-colors cursor-pointer"
                 >
                   + {preset.name.split(' ')[0]}
                 </button>
@@ -163,20 +163,20 @@ export default function PowerCalculatorPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
-                <tr className="border-b border-neutral-200 bg-neutral-50 text-neutral-400 font-semibold text-[11px] uppercase tracking-wider">
+                <tr className="border-b border-slate-100 bg-slate-50 text-slate-500 font-bold text-[11px] uppercase tracking-wider">
                   <th className="py-4 px-6">Appliance</th>
                   <th className="py-4 px-4 text-center">Watts (Each)</th>
                   <th className="py-4 px-4 text-center">Qty</th>
-                  <th className="py-4 px-4 text-center">Subtotal Watts</th>
+                  <th className="py-4 px-4 text-center">Subtotal</th>
                   <th className="py-4 px-4 text-center">Daily Hours</th>
-                  <th className="py-4 px-4 text-right">Daily Energy (kWh)</th>
+                  <th className="py-4 px-4 text-right">Daily kWh</th>
                   <th className="py-4 px-6 text-center">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-slate-100">
                 {rows.length === 0 ? (
                   <tr>
-                    <td colSpan={7} className="py-12 text-center text-neutral-500">
+                    <td colSpan={7} className="py-12 text-center text-slate-400">
                       No appliances added yet. Add an appliance below to start your calculation.
                     </td>
                   </tr>
@@ -186,8 +186,8 @@ export default function PowerCalculatorPage() {
                     const rowDailyKwh = (rowSubtotalWatts * row.hours) / 1000;
 
                     return (
-                      <tr key={row.id} className="hover:bg-neutral-50 transition-colors">
-                        <td className="py-4 px-6 font-medium text-neutral-900">
+                      <tr key={row.id} className="hover:bg-slate-50/70 transition-colors">
+                        <td className="py-4 px-6 font-bold text-slate-900">
                           <input
                             type="text"
                             value={row.name}
@@ -197,43 +197,30 @@ export default function PowerCalculatorPage() {
                                 prev.map((r) => (r.id === row.id ? { ...r, name: newName } : r))
                               );
                             }}
-                            className="bg-transparent border-b border-transparent hover:border-neutral-300 focus:border-solar-400 focus:outline-none text-white font-medium w-full"
+                            className="bg-transparent border-b border-transparent hover:border-slate-300 focus:border-emerald-500 focus:outline-none text-slate-900 font-bold w-full"
                           />
                         </td>
-
                         <td className="py-4 px-4 text-center">
                           <input
                             type="number"
                             min={1}
                             value={row.watts}
                             onChange={(e) => updateRow(row.id, 'watts', Number(e.target.value))}
-                            className="w-20 px-2 py-1 rounded bg-black/40 border border-neutral-200 text-center text-white focus:border-solar-400 focus:outline-none"
+                            className="w-20 text-center px-2 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-900 font-mono text-xs focus:border-emerald-500 focus:outline-none"
                           />
                         </td>
-
                         <td className="py-4 px-4 text-center">
-                          <div className="inline-flex items-center border border-neutral-300 rounded-lg bg-black/40">
-                            <button
-                              onClick={() => updateRow(row.id, 'quantity', row.quantity - 1)}
-                              disabled={row.quantity <= 1}
-                              className="px-2 py-0.5 text-neutral-400 hover:text-neutral-900 disabled:opacity-30"
-                            >
-                              -
-                            </button>
-                            <span className="px-2 font-semibold text-neutral-900">{row.quantity}</span>
-                            <button
-                              onClick={() => updateRow(row.id, 'quantity', row.quantity + 1)}
-                              className="px-2 py-0.5 text-solar-400 hover:text-solar-300"
-                            >
-                              +
-                            </button>
-                          </div>
+                          <input
+                            type="number"
+                            min={1}
+                            value={row.quantity}
+                            onChange={(e) => updateRow(row.id, 'quantity', Number(e.target.value))}
+                            className="w-14 text-center px-2 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-900 font-mono text-xs focus:border-emerald-500 focus:outline-none"
+                          />
                         </td>
-
-                        <td className="py-4 px-4 text-center font-semibold text-solar-400">
-                          {rowSubtotalWatts.toLocaleString()} W
+                        <td className="py-4 px-4 text-center font-bold text-slate-900 font-mono">
+                          {rowSubtotalWatts} W
                         </td>
-
                         <td className="py-4 px-4 text-center">
                           <input
                             type="number"
@@ -241,21 +228,19 @@ export default function PowerCalculatorPage() {
                             max={24}
                             value={row.hours}
                             onChange={(e) => updateRow(row.id, 'hours', Number(e.target.value))}
-                            className="w-16 px-2 py-1 rounded bg-black/40 border border-neutral-200 text-center text-white focus:border-solar-400 focus:outline-none"
+                            className="w-14 text-center px-2 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-900 font-mono text-xs focus:border-emerald-500 focus:outline-none"
                           />
                         </td>
-
-                        <td className="py-4 px-4 text-right font-bold text-neutral-900">
-                          {rowDailyKwh.toFixed(2)} kWh
+                        <td className="py-4 px-4 text-right font-bold text-emerald-700 font-mono">
+                          {rowDailyKwh.toFixed(2)}
                         </td>
-
                         <td className="py-4 px-6 text-center">
                           <button
                             onClick={() => removeRow(row.id)}
-                            className="p-1 text-neutral-500 hover:text-red-400 transition-colors"
-                            aria-label="Remove row"
+                            className="text-slate-400 hover:text-red-500 transition-colors p-1"
+                            title="Remove appliance"
                           >
-                            <Icon name="x" size={16} />
+                            <Icon name="x" size={14} />
                           </button>
                         </td>
                       </tr>
@@ -266,69 +251,61 @@ export default function PowerCalculatorPage() {
             </table>
           </div>
 
-          {/* Add Custom Appliance Form Bar */}
-          <div className="p-6 bg-neutral-50 border-t border-neutral-200">
-            <h3 className="text-xs font-bold text-neutral-300 uppercase tracking-wider mb-3">
-              Add Custom Equipment
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
-              <input
-                type="text"
-                placeholder="Appliance name (e.g. Electric Kettle)"
-                value={customName}
-                onChange={(e) => setCustomName(e.target.value)}
-                className="sm:col-span-2 px-4 py-2.5 rounded-xl bg-white border border-neutral-300 text-white text-xs placeholder:text-neutral-500 focus:border-solar-400 focus:outline-none"
-              />
-              <input
-                type="number"
-                placeholder="Watts"
-                value={customWatts}
-                onChange={(e) => setCustomWatts(Number(e.target.value))}
-                className="px-4 py-2.5 rounded-xl bg-white border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
-              />
-              <input
-                type="number"
-                placeholder="Hours/day"
-                value={customHours}
-                onChange={(e) => setCustomHours(Number(e.target.value))}
-                className="px-4 py-2.5 rounded-xl bg-white border border-neutral-300 text-white text-xs focus:border-solar-400 focus:outline-none"
-              />
-              <button
-                onClick={addCustomAppliance}
-                className="py-2.5 px-4 rounded-xl bg-solar-500 hover:bg-amber-600 text-neutral-950 font-bold text-xs transition-colors"
-              >
-                + Add Item
-              </button>
-            </div>
+          {/* Add Appliance Footer Bar */}
+          <div className="p-6 bg-slate-50/80 border-t border-slate-100 grid sm:grid-cols-5 gap-3 items-center">
+            <input
+              type="text"
+              placeholder="Custom appliance name..."
+              value={customName}
+              onChange={(e) => setCustomName(e.target.value)}
+              className="sm:col-span-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs focus:border-emerald-500 focus:outline-none"
+            />
+            <input
+              type="number"
+              placeholder="Watts (e.g. 250)"
+              value={customWatts}
+              onChange={(e) => setCustomWatts(Number(e.target.value))}
+              className="px-3 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs font-mono focus:border-emerald-500 focus:outline-none"
+            />
+            <input
+              type="number"
+              placeholder="Daily Hours (1-24)"
+              value={customHours}
+              onChange={(e) => setCustomHours(Number(e.target.value))}
+              className="px-3 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs font-mono focus:border-emerald-500 focus:outline-none"
+            />
+            <button
+              onClick={addCustomAppliance}
+              className="py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
+            >
+              <Icon name="plus" size={14} />
+              Add Item
+            </button>
           </div>
         </div>
 
-        {/* Action Handoffs */}
-        <div className="p-8 rounded-lg bg-gradient-to-r from-neutral-900 via-primary-950/40 to-neutral-900 border border-neutral-200 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-center md:text-left">
-            <h3 className="font-heading font-bold text-xl text-neutral-900">
-              Ready to Turn This Audit into a Configured System?
+        {/* Bottom CTA Block */}
+        <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-xl font-heading font-extrabold text-slate-950">
+              Ready to build this configured system?
             </h3>
-            <p className="text-xs text-neutral-400">
-              Transfer your {totalRunningWatts.toLocaleString()}W running load directly to the AI System Builder or request certified on-site engineering.
+            <p className="text-xs text-slate-500 mt-1 max-w-lg">
+              Take these exact wattage and kWh calculations straight into our interactive 3D System Builder to configure your battery bank and solar panels.
             </p>
           </div>
-
-          <div className="flex flex-wrap gap-3">
+          <div className="flex items-center gap-3 shrink-0">
             <Link
               href="/power/builder"
-              className="px-6 py-3 rounded-md bg-solar-600 text-white font-bold text-xs hover:opacity-95 transition-opacity shadow-lg shadow-primary-950/50 flex items-center gap-2"
+              className="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-all shadow-md shadow-emerald-600/20"
             >
-              <Icon name="settings" size={16} />
-              Open in System Builder
+              Launch System Builder →
             </Link>
-
             <Link
-              href="/power/installation"
-              className="px-6 py-3 rounded-full bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-white font-semibold text-xs transition-colors flex items-center gap-2"
+              href="/power/products"
+              className="px-5 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors"
             >
-              <Icon name="hard-hat" size={16} />
-              Request Site Audit
+              Shop Inverters
             </Link>
           </div>
         </div>
