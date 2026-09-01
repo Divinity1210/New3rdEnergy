@@ -11,7 +11,7 @@ import { useCart } from '@/components/power/CartContext';
 export default function PowerSolarPage() {
   const { addItem, addPackage } = useCart();
   const [monthlyBill, setMonthlyBill] = useState<number>(150000);
-  const [selectedKva, setSelectedKva] = useState<number>(5);
+  const [activeHeroTab, setActiveHeroTab] = useState<'rooftop' | 'inverter' | 'home' | 'business'>('rooftop');
 
   // Filter portable products for the spotlight
   const portableProducts = powerProducts.filter(
@@ -29,61 +29,111 @@ export default function PowerSolarPage() {
       ? { kva: '5kVA / 10.24kWh', name: 'Executive Home & Office Package', cost: 4950000, link: '/power/products/package-recommended-5kva' }
       : { kva: '10kVA / 20.48kWh', name: 'Commercial 3-Phase Package', cost: 9850000, link: '/power/products/package-commercial-10kva' };
 
+  // 3D Hero showcase visual data
+  const heroTabs = {
+    rooftop: {
+      title: 'Rooftop Solar PV Arrays',
+      tag: 'Tier-1 Monocrystalline',
+      metric: '+4.8 kW Peak Yield',
+      submetric: 'Direct Tropical Sunlight Capture',
+      image: '/images/solar-hero-installer.jpg',
+      alt: 'Certified 3RD Energy solar engineers installing rooftop solar panels in Lagos',
+    },
+    inverter: {
+      title: 'Smart Hybrid Inverter Wall',
+      tag: 'Pure Sine & LiFePO4',
+      metric: '0ms UPS Switchover',
+      submetric: 'Flame-Retardant Conduit & Breakers',
+      image: '/images/solar-inverter-wall.jpg',
+      alt: 'Neat residential hybrid solar inverter and battery installation in Nigeria',
+    },
+    home: {
+      title: 'Whole-Home Silent Backup',
+      tag: 'Zero Fumes & Zero Noise',
+      metric: '24/7 Continuous Power',
+      submetric: 'AC, Refrigeration, TV & Lighting',
+      image: '/images/solar-family-lifestyle.jpg',
+      alt: 'Nigerian family enjoying reliable continuous solar energy in modern living room',
+    },
+    business: {
+      title: 'Commercial Business Continuity',
+      tag: 'Zero Fuel Expense',
+      metric: '₦0 Generator Fuel Burn',
+      submetric: 'Shops, Salons, Clinics & Offices',
+      image: '/images/solar-business-barber.jpg',
+      alt: 'Nigerian commercial salon and business enterprise running smoothly on solar power',
+    },
+  };
+
   return (
     <div className="bg-[#ffffff] text-slate-900 min-h-screen font-sans" data-industry="solar">
       {/* ══════════════════════════════════════════════════════════════
-          1. HERO SECTION (PRACTICAL PHOTOGRAPHY + SUN KING STYLE)
+          1. MASSIVE PANORAMIC 3D HERO SECTION (SUN KING + 3D DEPTH)
       ══════════════════════════════════════════════════════════════ */}
-      <section className="relative pt-32 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/40 border-b border-slate-200/80">
-        <div className="container-wide relative z-10">
+      <section className="relative min-h-[88vh] lg:min-h-[820px] pt-32 pb-20 lg:pt-36 lg:pb-28 flex items-center overflow-hidden border-b border-slate-200/80 bg-slate-950">
+        {/* Panoramic Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/solar-hero-panoramic.jpg"
+            alt="Aerial view of Lagos Nigeria residential estate powered by 3RD Energy Services Ltd solar arrays"
+            fill
+            priority
+            className="object-cover object-center scale-105 animate-pulse-subtle"
+          />
+          {/* Luminous Frosted Gradient Overlay - Keeps text high-contrast while maintaining stunning photographic depth */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/92 lg:via-white/88 to-white/30 lg:to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40 z-10" />
+        </div>
+
+        <div className="container-wide relative z-20 w-full">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md border border-emerald-300 text-emerald-800 text-xs font-bold shadow-md">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-ping" />
                 <span>3RD ENERGY SERVICES LTD · SOLAR & CLEAN POWER DIVISION</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-heading font-extrabold text-slate-950 leading-[1.1] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-heading font-extrabold text-slate-950 leading-[1.08] tracking-tight">
                 Affordable, Reliable Solar Power in{' '}
                 <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 bg-clip-text text-transparent">
                   Nigeria.
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
-                Connect to reliable, stress-free clean energy with <strong>3RD Energy Services Ltd</strong>. From fast-charge laptop power banks to residential solar inverters and commercial three-phase microgrids.
+              <p className="text-base sm:text-lg text-slate-700 max-w-xl leading-relaxed font-medium">
+                Connect your home or commercial enterprise to uninterrupted, stress-free clean energy with <strong>3RD Energy Services Ltd</strong>. From ultra-fast 65W/100W laptop power banks to residential solar hybrid inverters and commercial three-phase microgrids.
               </p>
 
               {/* 3 Core Trust Badges (Sun King Pattern) */}
               <div className="grid sm:grid-cols-3 gap-3 pt-1">
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold">
+                <div className="p-3.5 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-md hover:shadow-lg transition-all flex items-start gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold">
                     <Icon name="zap" size={16} />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-slate-900 block leading-tight">Nigeria's Trusted</span>
-                    <span className="text-[11px] text-slate-500 block mt-0.5">Home & business solar provider</span>
+                    <span className="text-xs font-extrabold text-slate-950 block leading-tight">Nigeria's Trusted</span>
+                    <span className="text-[11px] text-slate-600 block mt-0.5">Home & business solar</span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold">
+                <div className="p-3.5 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-md hover:shadow-lg transition-all flex items-start gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold">
                     <Icon name="tool" size={16} />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-slate-900 block leading-tight">Turnkey Install</span>
-                    <span className="text-[11px] text-slate-500 block mt-0.5">Warranty & after-sales care</span>
+                    <span className="text-xs font-extrabold text-slate-950 block leading-tight">Turnkey Install</span>
+                    <span className="text-[11px] text-slate-600 block mt-0.5">Warranty & after-care</span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold">
+                <div className="p-3.5 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-md hover:shadow-lg transition-all flex items-start gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold">
                     <Icon name="check" size={16} />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-slate-900 block leading-tight">Flexible Payment</span>
-                    <span className="text-[11px] text-slate-500 block mt-0.5">Direct & corporate invoicing</span>
+                    <span className="text-xs font-extrabold text-slate-950 block leading-tight">Flexible Payment</span>
+                    <span className="text-[11px] text-slate-600 block mt-0.5">Direct & milestone pay</span>
                   </div>
                 </div>
               </div>
@@ -92,53 +142,99 @@ export default function PowerSolarPage() {
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <a
                   href="#savings-calculator"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-xl transition-all shadow-md shadow-emerald-600/25 hover:-translate-y-0.5 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-7 py-4 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-xl transition-all shadow-xl shadow-emerald-600/30 hover:-translate-y-1 cursor-pointer"
                 >
-                  <Icon name="trending-up" size={15} />
+                  <Icon name="trending-up" size={16} />
                   See What You Can Save
                 </a>
                 <Link
                   href="/power/planner"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 text-xs font-bold text-slate-800 bg-white hover:bg-slate-100 border border-slate-300 rounded-xl transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-7 py-4 text-xs font-bold text-slate-900 bg-white/95 hover:bg-white border border-slate-300 rounded-xl transition-all shadow-md hover:-translate-y-0.5"
                 >
-                  <Icon name="zap" size={15} className="text-emerald-600" />
+                  <Icon name="zap" size={16} className="text-emerald-600" />
                   AI Sizing Planner
                 </Link>
                 <Link
                   href="/power/products"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50/80 rounded-xl transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-4 text-xs font-bold text-emerald-800 hover:text-emerald-950 hover:bg-white/80 rounded-xl transition-all font-mono"
                 >
-                  <span>Explore Equipment Range →</span>
+                  <span>Explore Hardware Store →</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Hero Visual: Real Rooftop Installation Photo */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group">
-                <Image
-                  src="/images/solar-hero-installer.jpg"
-                  alt="Certified 3RD Energy Services Ltd solar engineers installing rooftop solar panels in Lagos Nigeria"
-                  width={900}
-                  height={600}
-                  priority
-                  className="w-full h-[360px] sm:h-[420px] object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                
-                {/* Floating Metric Overlays */}
-                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-lg">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold">
-                        <Icon name="check" size={18} />
-                      </div>
+            {/* Right Hero Visual: 3D Spatial Interactive Depth Console */}
+            <div className="lg:col-span-6 relative perspective-[1200px]">
+              {/* 3D Depth Card with Parallax Angle */}
+              <div className="relative rounded-3xl p-3 bg-white/90 backdrop-blur-2xl border-2 border-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.25)] transition-transform duration-500 hover:rotate-y-[-2deg] hover:rotate-x-[1deg]">
+                {/* Interactive Category Selector Pills */}
+                <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-100/90 mb-3 overflow-x-auto text-[11px] font-bold">
+                  {[
+                    { id: 'rooftop', label: '☀️ Rooftop Solar' },
+                    { id: 'inverter', label: '⚡ Smart Inverter' },
+                    { id: 'home', label: '🏡 Home Backup' },
+                    { id: 'business', label: '🏢 Business Solar' },
+                  ].map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveHeroTab(tab.id as any)}
+                      className={`px-3 py-2 rounded-xl transition-all shrink-0 cursor-pointer ${
+                        activeHeroTab === tab.id
+                          ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
+                          : 'text-slate-600 hover:text-slate-950 hover:bg-white/60'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* 3D Visual Stage with Floating Real-Time Gauges */}
+                <div className="relative h-[340px] sm:h-[400px] w-full rounded-2xl overflow-hidden bg-slate-950 group">
+                  <Image
+                    src={heroTabs[activeHeroTab].image}
+                    alt={heroTabs[activeHeroTab].alt}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+
+                  {/* Top-Left Floating 3D Badge (Energy Generation) */}
+                  <div className="absolute top-4 left-4 p-3 rounded-2xl bg-white/95 backdrop-blur-md border border-white shadow-xl flex items-center gap-2.5 animate-bounce-subtle">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold shadow-sm">
+                      <Icon name="sun" size={16} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-500 uppercase block font-mono">Live Generation</span>
+                      <span className="text-xs font-extrabold text-slate-950 block">{heroTabs[activeHeroTab].metric}</span>
+                    </div>
+                  </div>
+
+                  {/* Top-Right Floating 3D Badge (LiFePO4 Health) */}
+                  <div className="absolute top-4 right-4 p-2.5 px-3 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-slate-700 text-white shadow-xl flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[10px] font-bold font-mono">6,000 Cycles LiFePO4</span>
+                  </div>
+
+                  {/* Bottom Hero Card Details Banner */}
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl">
+                    <div className="flex items-center justify-between">
                       <div>
-                        <span className="text-xs font-extrabold text-slate-950 block">Certified Turnkey Installation</span>
-                        <span className="text-[10px] text-slate-500 block">Tier-1 Monocrystalline PV & LiFePO4</span>
+                        <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 uppercase tracking-wider font-mono">
+                          {heroTabs[activeHeroTab].tag}
+                        </span>
+                        <h3 className="text-sm sm:text-base font-heading font-extrabold text-slate-950 mt-1">
+                          {heroTabs[activeHeroTab].title}
+                        </h3>
+                        <span className="text-[11px] text-slate-500 block">
+                          {heroTabs[activeHeroTab].submetric}
+                        </span>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase font-mono block">Grid Uptime</span>
+                        <span className="text-base sm:text-lg font-heading font-extrabold text-emerald-700 font-mono">99.8%</span>
                       </div>
                     </div>
-                    <span className="text-xs font-extrabold text-emerald-700 font-mono">99.8% Uptime</span>
                   </div>
                 </div>
               </div>
