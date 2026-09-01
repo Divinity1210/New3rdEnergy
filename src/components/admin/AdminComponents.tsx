@@ -21,6 +21,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: 'Dashboard', href: '/admin', icon: '📊', roles: ['ADMIN', 'MARKETING', 'SALES', 'FINANCE', 'TECHNICAL', 'SUPPORT', 'READ_ONLY'] },
+  { label: 'Orders & Store', href: '/admin/orders', icon: '📦', roles: ['ADMIN', 'SALES', 'FINANCE', 'TECHNICAL', 'SUPPORT'] },
   { label: 'Leads', href: '/admin/leads', icon: '🎯', roles: ['ADMIN', 'SALES'] },
   { label: 'Pipeline', href: '/admin/pipeline', icon: '🔄', roles: ['ADMIN', 'SALES', 'MARKETING'] },
   { label: 'Contacts', href: '/admin/contacts', icon: '👥', roles: ['ADMIN', 'SALES', 'SUPPORT'] },

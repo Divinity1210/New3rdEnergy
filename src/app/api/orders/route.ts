@@ -132,10 +132,13 @@ export async function POST(request: NextRequest) {
       await notificationAdapter.sendConfirmation(lead);
       await notificationAdapter.sendOrderNotification(order);
 
-      // Persist to leadsStore for Admin Pipeline and CRM
+      // Persist to leadsStore and ordersStore for Admin Pipeline and Order Management
       const { Store } = await import('@/lib/services/store-service');
       const leadsStore = new Store<any>('leads');
       await leadsStore.create(lead as any);
+
+      const ordersStore = new Store<any>('orders');
+      await ordersStore.create(order as any);
     } catch (adapterError) {
       console.warn('CRM/Notification sync warning:', adapterError);
     }
