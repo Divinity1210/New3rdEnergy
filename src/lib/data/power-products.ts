@@ -10,7 +10,7 @@ export const powerProducts: PowerProduct[] = [
   {
     id: 'inv-3.5kva-24v',
     slug: '3.5kva-24v-pure-sine-hybrid-inverter',
-    name: '3rd Energy 3.5kVA / 24V Pure Sine Hybrid Inverter',
+    name: '3rd Energy Hybrid Inverter — 3.5kVA / 24V Pure Sine',
     category: 'inverters',
     tagline: 'Reliable residential & small office solar hybrid inverter with MPPT charger.',
     description: 'High-frequency pure sine wave hybrid inverter with integrated 80A MPPT solar charge controller and smart generator auto-start contacts. Engineered for smooth automatic grid/generator transfer without resetting sensitive IT equipment.',
@@ -58,7 +58,7 @@ export const powerProducts: PowerProduct[] = [
   {
     id: 'inv-5kva-48v',
     slug: '5kva-48v-smart-hybrid-inverter',
-    name: '3rd Energy 5kVA / 48V Smart Hybrid Inverter',
+    name: '3rd Energy Hybrid Inverter — 5kVA / 48V Smart MPPT',
     category: 'inverters',
     tagline: 'The industry-standard 48V hybrid inverter for commercial & residential energy independence.',
     description: 'Flagship 5000W continuous output hybrid inverter featuring dual MPPT solar trackers (100A total), cloud Wi-Fi monitoring, and parallel capability for up to 9 units (45kVA total). Compatible with all leading LiFePO4 battery BMS protocols.',
@@ -106,7 +106,7 @@ export const powerProducts: PowerProduct[] = [
   {
     id: 'inv-10kva-48v-3p',
     slug: '10kva-48v-three-phase-commercial-inverter',
-    name: '3rd Energy 10kVA / 48V Three-Phase Commercial Hybrid Inverter',
+    name: '3rd Energy Hybrid Inverter — 10kVA / 48V Commercial 3-Phase',
     category: 'inverters',
     tagline: 'Industrial-grade 3-phase hybrid power inverter for commercial facilities and manufacturing.',
     description: 'Heavy-duty 10kW three-phase 400V pure sine hybrid inverter engineered for commercial complexes, manufacturing lines, and fuel depot operations. Features dual high-voltage MPPTs (15kW PV capacity), zero-export grid control, and smart diesel generator synchronization.',
@@ -155,7 +155,7 @@ export const powerProducts: PowerProduct[] = [
   {
     id: 'bat-5.12kwh-wall',
     slug: '5.12kwh-lifepo4-wall-mount-battery',
-    name: '3rd Energy 5.12kWh / 100Ah LiFePO4 Wall-Mount Battery',
+    name: '3rd Energy Solar Lithium Battery — 5.12kWh / 100Ah Wall Mount',
     category: 'batteries',
     tagline: 'Sleek, high-density Lithium Iron Phosphate battery module with 6,000 cycle lifespan.',
     description: 'Grade-A prismatic LiFePO4 cell battery module in a space-saving wall-mounted steel enclosure. Integrated smart BMS with real-time cell balancing, thermal sensors, and CAN/RS485 communication protocols for plug-and-play synchronization with hybrid inverters.',
@@ -198,7 +198,7 @@ export const powerProducts: PowerProduct[] = [
   {
     id: 'bat-10.24kwh-rack',
     slug: '10.24kwh-lifepo4-rack-mount-battery',
-    name: '3rd Energy 10.24kWh / 200Ah LiFePO4 Commercial Rack Battery',
+    name: '3rd Energy Solar Lithium Battery — 10.24kWh / 200Ah Commercial',
     category: 'batteries',
     tagline: 'High-capacity commercial energy storage module for server rooms, clinics, and heavy estates.',
     description: 'Heavy-duty 10.24kWh 51.2V 200Ah modular server-rack LiFePO4 battery system. Built for continuous deep-discharge cycling in high-temperature environments with advanced dual BMS protection and RS485/CAN communication.',
@@ -282,7 +282,7 @@ export const powerProducts: PowerProduct[] = [
   {
     id: 'sp-550w-mono',
     slug: '550w-tier1-monocrystalline-perc-panel',
-    name: '3rd Energy 550W Tier-1 Monocrystalline PERC Solar Panel',
+    name: '3rd Energy Panel — 550W Tier-1 Monocrystalline PERC',
     category: 'solar-panels',
     tagline: 'High-efficiency 550W half-cut cell solar PV module with 21.3% efficiency.',
     description: 'Tier-1 certified 550W monocrystalline solar panel featuring 144 half-cut multi-busbar (MBB) PERC cells, anodized aluminum frame, and IP68 junction box. Engineered for maximum kilowatt-hour yield in tropical, high-temperature, and low-light ambient conditions.',
@@ -322,7 +322,7 @@ export const powerProducts: PowerProduct[] = [
   {
     id: 'sp-650w-bifacial',
     slug: '650w-bifacial-dual-glass-solar-panel',
-    name: '3rd Energy 650W Bifacial Dual-Glass High-Yield Solar Panel',
+    name: '3rd Energy Panel — 650W Bifacial Dual-Glass High-Yield',
     category: 'solar-panels',
     tagline: 'Ultra-high-yield bifacial panel with up to 25% rear-side energy gain.',
     description: 'Commercial-grade 650W dual-glass bifacial solar panel utilizing N-Type TOPCon cell technology. Captures direct sunlight from the front face and reflected ambient light from the rear face, boosting total energy generation by up to 25% on concrete decks and light surfaces.',
